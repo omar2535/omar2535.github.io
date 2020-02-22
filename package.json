@@ -20,6 +20,7 @@
     "mdbvue": "^6.5.0",
     "showdown": "^1.9.1",
     "vue": "^2.6.11",
+    "vue-cli-plugin-s3-deploy": "^4.0.0-rc3",
     "vue-markdown": "^2.2.4"
   },
   "devDependencies": {
