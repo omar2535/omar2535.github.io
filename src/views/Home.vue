@@ -16,9 +16,11 @@ import multilanguage_hello_json from "../../public/multilanguage-hello.json";
 const multilanguage_hellos = multilanguage_hello_json.map(e => e.hello);
 const multiLanguageHellosString = multilanguage_hellos.join("  ");
 
-console.log(multilanguage_hellos);
 export default {
   name: "Home",
+  created() {
+    document.title = "Home"
+  },
   data: () => {
     return {
       hello: multiLanguageHellosString

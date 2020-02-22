@@ -16,6 +16,7 @@
     "bootstrap": "^4.4.1",
     "bootstrap-vue": "^2.5.0",
     "core-js": "^3.6.4",
+    "fs": "^0.0.1-security",
     "mdbvue": "^6.5.0",
     "showdown": "^1.9.1",
     "vue": "^2.6.11",

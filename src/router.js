@@ -25,7 +25,7 @@ const router = new Router({
     },
     {
       path: "/blog",
-      name: "blog",
+      name: "blog-home",
       component: Blog,
       meta: {
         title: 'Blog',

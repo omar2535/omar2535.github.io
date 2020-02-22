@@ -10,7 +10,6 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 // import font-awesome
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-
 // Install BootstrapVue
 Vue.use(BootstrapVue)
 // Optionally install the BootstrapVue icon components plugin

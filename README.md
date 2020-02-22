@@ -27,3 +27,9 @@ yarn run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### To see if it built succesfully locallt
+```
+npm  install http-server -g
+http-server dist
+```

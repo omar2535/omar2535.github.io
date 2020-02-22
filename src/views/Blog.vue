@@ -27,7 +27,7 @@
 
 <script>
 import PostAnalyzer from "../services/PostAnalyzer.js";
-
+import PostService from "../services/PostService.js";
 export default {
   name: "PostComponent",
   data() {
@@ -37,7 +37,10 @@ export default {
       text: ""
     };
   },
-  async created() {
+  created() {
+    document.title = "Blog"
+    console.log('posts');
+    PostService.getPosts();
     // let postPlaceholder = await PostService.getPosts();
     // this.posts = postPlaceholder.sort();
   },
