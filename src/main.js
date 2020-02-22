@@ -19,6 +19,8 @@ Vue.config.productionTip = false
 // save font-awesome components
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
+console.log(`posts`);
+
 new Vue({
   router,
   render: h => h(App),

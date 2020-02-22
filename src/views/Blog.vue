@@ -2,6 +2,7 @@
   <div class="posts">
     <h1>Latest Posts</h1>
     <hr>
+    <h3>Under construction🚧</h3>
     <p class="error" v-if="error">{{ error }}</p>
     <div class="posts-container">
       <div class="post" v-for="post in posts" v-bind:item="post" v-bind:key="post.title">
@@ -115,6 +116,9 @@ a:hover{
   margin: 2em;
 }
 h1{
+  text-align: center;
+}
+h3{
   text-align: center;
 }
 
