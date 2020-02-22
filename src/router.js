@@ -26,7 +26,10 @@ const router = new Router({
     {
       path: "/blog",
       name: "blog",
-      component: Blog
+      component: Blog,
+      meta: {
+        title: 'Blog',
+      }
     },
     {
       path: "/about",
@@ -35,10 +38,14 @@ const router = new Router({
     },
     {
       path: "/blog/:id",
-      name: "post",
+      name: "blog-post",
       component: Post
     }
   ]
 });
+// router.beforeEach((to, from, next) => {
+//   document.title = to.meta.title
+//   next()
+// })
 
 export default router;
