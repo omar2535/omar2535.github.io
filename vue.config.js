@@ -1,22 +1,23 @@
-const postsFolder = './public/posts';
-var webpack = require('webpack');
-const fs = require('fs');
-
-let array_of_files = []
-fs.readdirSync(postsFolder).forEach(file => {
-  array_of_files.push(file);
-});
-
-// https://stackoverflow.com/questions/52420663/unable-to-require-fs-with-vue-cli-3/53502487
 module.exports = {
-  lintOnSave: true,
-  configureWebpack: () => {
-    return {
-      plugins: [
-        new webpack.DefinePlugin({
-          'posts': array_of_files,
-        })
-      ]
+  pluginOptions: {
+    s3Deploy: {
+      registry: undefined,
+      awsProfile: 'default',
+      overrideEndpoint: false,
+      region: 'us-west-2',
+      bucket: 'omar2535-site',
+      createBucket: true,
+      staticHosting: true,
+      staticIndexPage: 'index.html',
+      staticErrorPage: 'index.html',
+      assetPath: 'dist',
+      assetMatch: '**',
+      deployPath: '/',
+      acl: 'public-read',
+      pwa: false,
+      enableCloudfront: false,
+      pluginVersion: '4.0.0-rc3',
+      uploadConcurrency: 5
     }
-  },
-};
+  }
+}

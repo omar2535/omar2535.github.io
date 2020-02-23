@@ -33,3 +33,9 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 npm  install http-server -g
 http-server dist
 ```
+
+### Deploy
+```sh
+yarn build
+yarn deploy
+```
