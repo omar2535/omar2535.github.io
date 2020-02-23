@@ -40,7 +40,6 @@ export default {
   },
   created() {
     document.title = "Blog"
-    console.log('posts');
     PostService.getPosts();
     // let postPlaceholder = await PostService.getPosts();
     // this.posts = postPlaceholder.sort();
