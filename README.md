@@ -28,13 +28,13 @@ yarn run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
-### To see if it built succesfully locallt
+### To run the built static files locally
 ```
-npm  install http-server -g
+npm install http-server -g
 http-server dist
 ```
 
-### Deploy
+### To deploy on S3
 ```sh
 yarn build
 yarn deploy
