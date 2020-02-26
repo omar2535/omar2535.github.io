@@ -1,6 +1,6 @@
 <template>
   <div>
-    <marquee scrollamount= "5" class="scrolling-text" behavior="scroll" direction="left">{{ hello }}</marquee>
+    <p class="marquee"> <span> {{ hello }} </span> </p>
     <h3 id="title">Welcome</h3>
     <div id="content">
       <p>To visit my blog, click <router-link to="/blog">blog</router-link></p>
@@ -38,5 +38,33 @@ export default {
   #content {
     text-align: center;
     padding: 1em;
+  }
+  .marquee {
+    width: 100%;
+    margin: 0 auto;
+    white-space: nowrap;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  .marquee span {
+    display: inline-block;
+    padding-left: 100%;
+    /* show the marquee just outside the paragraph */
+    animation: marquee 120s linear infinite;
+  }
+
+  .marquee span:hover {
+    animation-play-state: paused
+  }
+
+  /* Make it move */
+  @keyframes marquee {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(-100%, 0);
+    }
   }
 </style>
