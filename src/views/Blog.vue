@@ -2,8 +2,7 @@
   <div class="posts">
     <h1>Latest Posts</h1>
     <hr>
-    <h3>Under construction🚧</h3>
-    <p class="error" v-if="error">{{ error }}</p>
+    <p class="error" v-html="error" v-if="error">{{ error }}</p>
     <div class="posts-container">
       <div class="post" v-for="post in posts" v-bind:item="post" v-bind:key="post.title">
         <div class="card" style="width: 18rem;">
@@ -34,7 +33,7 @@ export default {
   data() {
     return {
       posts: [],
-      error: "",
+      error: '<h3 style="text-align: center"> Under construction 🚧 </h3>',
       text: ""
     };
   },
@@ -62,13 +61,6 @@ export default {
 <style scoped>
 div.posts{
   margin-top: 2%;
-}
-
-p.error {
-  border: 1px solid #ff5b5f;
-  background-color: #ffc5c1;
-  padding: 10px;
-  margin-bottom: 15px;
 }
 
 .posts-container{
@@ -115,9 +107,6 @@ a:hover{
   margin: 2em;
 }
 h1{
-  text-align: center;
-}
-h3{
   text-align: center;
 }
 
