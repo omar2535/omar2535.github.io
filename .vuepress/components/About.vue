@@ -4,7 +4,6 @@
       <img id="profile_image" src="../content/profile_image.jpg">
       <div id="profile-heading-text">
         <h1 id="name"> Omar Tsai </h1>
-        <Fa-AddressBook />
         <a :href="'//' + linkedinUrl" target="_blank">Linkedin</a>
         <a :href="'//' + githubUrl" target="_blank"> Github</a>
         <a :href="'//' + twitterUrl" target="_blank">Twitter</a>
