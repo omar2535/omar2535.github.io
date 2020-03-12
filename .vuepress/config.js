@@ -1,3 +1,5 @@
+let { generateChildren } = require('./sidebarChildrenUtils');
+
 module.exports = {
   title: "Omar2535",
   description: "Notes",
@@ -15,39 +17,25 @@ module.exports = {
           title: "Courses",
           path: "/notes/courses/",
           collapsable: false,
-          children: [
-            "/notes/courses/practical-ethical-hacking.md"
-          ]
+          children: generateChildren("/notes/courses/")
         },
         {
           title: "Guides",
           path: "/notes/guides/",
           collapsable: false,
-          children: [
-          ]
+          children: generateChildren("/notes/guides/")
         },
         {
           title: "CTF",
           path: "/notes/ctf/",
           collapsable: false,
-          children: [
-            {
-              title: "TryHackme",
-              path: "/notes/ctf/tryhackme/",
-              collapsable: true,
-              children: [
-                "/notes/ctf/tryhackme/blue.md"
-              ]
-            }
-          ]
+          children: generateChildren("/notes/ctf")
         },
         {
           title: "Certs",
           path: "/notes/certs/",
           collapsable: false,
-          children: [
-            "/notes/certs/aws-certified-solutions-architect-associate.md"
-          ]
+          children: generateChildren("/notes/certs")
         }
       ],
       '/blog/': [
