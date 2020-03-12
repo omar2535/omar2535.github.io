@@ -23,11 +23,12 @@ function generateSidebarContents(dirPath, children, directoriesToExclude) {
   return children;
 }
 
-// USAGE:
-// Requires a base path IE: /notes/cert or /notes
-// finds all the children for that including any folders with children inside
-// will only add markdown files as children and uses a default directories to exclude of node_modules, .git, and .vuepress
-// returns a list of children
+/**
+ * Returns all the children as an array found in a directory
+ * @param {string} basePath the base path to the directory with children from the project's root. Example: ./notes/
+ * @param {array} directoriesToExclude the directories that should not be added to children,
+ *                                     defaults to ['.vuepress', 'node_modules', '.git'] when not given
+ */
 function generateChildren(basePath, directoriesToExclude) {
   if(! basePath.startsWith(".")) basePath = `.${basePath}`;
   if(! basePath.endsWith('/')) basePath = `${basePath}/`
