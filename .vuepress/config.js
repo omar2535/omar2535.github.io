@@ -53,5 +53,12 @@ module.exports = {
       '/blog/': [
       ]
     }
-  }
+  },
+  configureWebpack: {
+    resolve: {
+      alias: {
+        'images': '.vuepress/assets/images'
+      }
+    }
+  },
 };
