@@ -24,7 +24,7 @@ function generateSidebarContents(dirPath, children, directoriesToExclude) {
 }
 
 /**
- * Returns all the children as an array found in a directory
+ * Returns all the children found in a directory as an array
  * @param {string} basePath the base path to the directory with children from the project's root. Example: ./notes/
  * @param {array} directoriesToExclude the directories that should not be added to children,
  *                                     defaults to ['.vuepress', 'node_modules', '.git'] when not given
