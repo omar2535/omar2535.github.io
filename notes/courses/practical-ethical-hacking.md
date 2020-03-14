@@ -1,5 +1,7 @@
 # Practical ethical hacking
 
+Notes on the Practical Ethical Hacking - The Complete Course by Heath Adams
+
 ## Networking
 
 ###  MAC addresss
