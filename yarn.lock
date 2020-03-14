@@ -783,6 +783,11 @@
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.3.tgz#2b5a3ab3f918cca48a8c754c08168e3f03eba61b"
   integrity sha512-shAmDyaQC4H92APFoIaVDHCx5bStIocgvbwQyxPRrbUY20V1EYTbSDchWbuwlMG3V17cprZhA6+78JfB+3DTPw==
 
+"@omar2535/vuepress-sidebar-children-autogenerator@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@omar2535/vuepress-sidebar-children-autogenerator/-/vuepress-sidebar-children-autogenerator-2.1.0.tgz#00aa06fcea7858db06278b0ba21794b2d26fb246"
+  integrity sha512-lqO2KzkxkK/iZK9byoNOqdcbXiq/O7+CoO4iFRMBisMjv3MnBinBVurovRHULDMAC11ELON6VHHgtQ6nOquo4A==
+
 "@sindresorhus/is@^0.14.0":
   version "0.14.0"
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.14.0.tgz#9fb3a3cf3132328151f353de4632e01e52102bea"
