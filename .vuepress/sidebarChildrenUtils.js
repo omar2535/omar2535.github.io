@@ -6,7 +6,7 @@ function generateSidebarContents(dirPath, children, directoriesToExclude) {
     let fullPath = `${dirPath}${file.name}/`;
     if (file.isDirectory()) {
       if (!directoriesToExclude.includes(file.name)) {
-        let dirChildren = generateSidebarContents(fullPath, []);
+        let dirChildren = generateSidebarContents(fullPath, [], directoriesToExclude);
         children.push({
           title: file.name,
           path: fullPath.substr(1),

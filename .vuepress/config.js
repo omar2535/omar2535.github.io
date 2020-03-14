@@ -12,32 +12,7 @@ module.exports = {
     sidebar: 
     {
       // sidebar for notes section
-      '/notes/': [
-        {
-          title: "Courses",
-          path: "/notes/courses/",
-          collapsable: false,
-          children: generateChildren("/notes/courses/")
-        },
-        {
-          title: "Guides",
-          path: "/notes/guides/",
-          collapsable: false,
-          children: generateChildren("/notes/guides/")
-        },
-        {
-          title: "CTF",
-          path: "/notes/ctf/",
-          collapsable: false,
-          children: generateChildren("/notes/ctf")
-        },
-        {
-          title: "Certs",
-          path: "/notes/certs/",
-          collapsable: false,
-          children: generateChildren("/notes/certs")
-        }
-      ],
+      '/notes/': generateChildren('/notes/'),
       '/blog/': [
       ]
     }
