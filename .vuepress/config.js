@@ -1,4 +1,4 @@
-let { generateChildren } = require('@omar2535/vuepress-sidebar-children-autogenerator');
+let generateChildren = require('@omar2535/vuepress-sidebar-children-autogenerator');
 
 module.exports = {
   title: "Omar2535",
