@@ -17,11 +17,9 @@ module.exports = {
       ]
     }
   },
-  configureWebpack: {
-    resolve: {
-      alias: {
-        'images': '.vuepress/assets/images'
-      }
-    }
-  },
+  plugins: [
+    [
+      'vuepress-plugin-mathjax',
+    ],
+  ],
 };

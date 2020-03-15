@@ -55,15 +55,15 @@ Transmitting data goes from layer 7 -> 1
 Subnetting is used to divide networks into smaller sub-networks
 
 How many bits are switched off = how many hosts available\
-IE. `255:255:255:0` => `8` bits switched **off** => `2^8` = `256` hosts, the subnet is `/24` since there are `24` bits on or in other words, `8` bits off.
+IE. `255:255:255:0` => `8` bits switched **off** => $2^8 = 256$ hosts, the subnet is `/24` since there are `24` bits on or in other words, `8` bits off.
 
 | CIDR | Subnet mask  | Hosts  |  
 |---|:-:|---|---|---|
-| \1  | 128:0:0:0  | 2^(31)  |  
-| \2  | 192:0:0:0 | 2^(32-2)  |
-| \10  | 255:192:0:0 | 2^(32-10)  |
-| \22  | 255:255:252:0 | 2^(32-22) | 
-| \32 | 255:255:255:255  | 2^(32-32)  | 
+| \1  | 128:0:0:0  | $2^{31}$  |  
+| \2  | 192:0:0:0 | $2^{32-2}$  |
+| \10  | 255:192:0:0 | $2^{32-10}$  |
+| \22  | 255:255:252:0 | $2^{32-22}$ | 
+| \32 | 255:255:255:255  | $2^{32-32}$  | 
 
 Usually, the `.0` is the network ID and the `.255` is the broadcast ID
 
