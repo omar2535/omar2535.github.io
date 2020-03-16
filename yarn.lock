@@ -1006,6 +1006,13 @@
   dependencies:
     lodash.debounce "^4.0.8"
 
+"@vuepress/plugin-back-to-top@^1.3.1":
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/@vuepress/plugin-back-to-top/-/plugin-back-to-top-1.3.1.tgz#51fbb043845b46a66e85f66ae099041c76f08abc"
+  integrity sha512-vjfYqSnlZy7Z1Hmre7rw3crtUk9nVUJw+fG0CKp5VXLdBnzrACZznxrFw1BhuzqnV9UT3vq6n8MTlcbpq2Xs8g==
+  dependencies:
+    lodash.debounce "^4.0.8"
+
 "@vuepress/plugin-last-updated@^1.3.1":
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/@vuepress/plugin-last-updated/-/plugin-last-updated-1.3.1.tgz#70f241181a0d485029329a7c9d0f0629d4242b5b"
@@ -6516,7 +6523,7 @@ slash@^2.0.0:
   resolved "https://registry.yarnpkg.com/slash/-/slash-2.0.0.tgz#de552851a1759df3a8f206535442f5ec4ddeab44"
   integrity sha512-ZYKh3Wh2z1PpEXWr0MpSBZ0V6mZHAQfYevttO11c51CaWjGTaadiKZ+wVt1PbMlDV5qhMFslpZCemhwOK7C89A==
 
-smoothscroll-polyfill@^0.4.3:
+smoothscroll-polyfill@^0.4.3, smoothscroll-polyfill@^0.4.4:
   version "0.4.4"
   resolved "https://registry.yarnpkg.com/smoothscroll-polyfill/-/smoothscroll-polyfill-0.4.4.tgz#3a259131dc6930e6ca80003e1cb03b603b69abf8"
   integrity sha512-TK5ZA9U5RqCwMpfoMq/l1mrH0JAR7y7KRvOBx0n2869aLxch+gT9GhN3yUfjiw+d/DiF1mKo14+hd62JyMmoBg==
@@ -7490,6 +7497,11 @@ vuepress-mergeable@^1.0.2:
   dependencies:
     deconstruct-merge "^1.1.0"
 
+vuepress-plugin-code-copy@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/vuepress-plugin-code-copy/-/vuepress-plugin-code-copy-1.0.6.tgz#6431dab764b48b5b203e4936d98b1943651ce4ad"
+  integrity sha512-FiqwMtlb4rEsOI56O6sSkekcd3SlESxbkR2IaTIQxsMOMoalKfW5R9WlR1Pjm10v6jmU661Ex8MR11k9IzrNUg==
+
 vuepress-plugin-container@^2.0.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/vuepress-plugin-container/-/vuepress-plugin-container-2.1.2.tgz#688c1e5a9709a1b8658605bcaee580b3abb19d16"
@@ -7506,12 +7518,24 @@ vuepress-plugin-mathjax@^1.2.8:
     mathjax3 "3.0.0-beta.3"
     vuepress-mergeable "^1.0.2"
 
+vuepress-plugin-seo@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/vuepress-plugin-seo/-/vuepress-plugin-seo-0.1.2.tgz#132e656274bfaffce72e816fb8450951f3f6cc13"
+  integrity sha512-Tv3ihNl3pDX5krqq9r2X9rFKUVR8ssLvcKcu1P4ABP8/b3vC06St/UTe5QucgKzuphlIJkbRSOQ7n7yf6jMCRw==
+
 vuepress-plugin-smooth-scroll@^0.0.3:
   version "0.0.3"
   resolved "https://registry.yarnpkg.com/vuepress-plugin-smooth-scroll/-/vuepress-plugin-smooth-scroll-0.0.3.tgz#6eff2d4c186cca917cc9f7df2b0af7de7c8c6438"
   integrity sha512-qsQkDftLVFLe8BiviIHaLV0Ea38YLZKKonDGsNQy1IE0wllFpFIEldWD8frWZtDFdx6b/O3KDMgVQ0qp5NjJCg==
   dependencies:
     smoothscroll-polyfill "^0.4.3"
+
+vuepress-plugin-smooth-scroll@^0.0.9:
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/vuepress-plugin-smooth-scroll/-/vuepress-plugin-smooth-scroll-0.0.9.tgz#6c5d01db60def3d7b976b53404e56b97da9e8f39"
+  integrity sha512-UXX+HLZO1NKVwyiOJlj0smh8F9dKnwybjEi7w/Mj9EYLhKrNYr5uXs+N+OTt8VwKCn3f0vZ1XAwFIjsPlD7GJA==
+  dependencies:
+    smoothscroll-polyfill "^0.4.4"
 
 vuepress@^1.3.1:
   version "1.3.1"

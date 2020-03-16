@@ -20,6 +20,10 @@ module.exports = {
   plugins: [
     [
       'vuepress-plugin-mathjax',
+      '@vuepress/back-to-top',
+      '@vuepress/plugin-nprogress',
+      'vuepress-plugin-smooth-scroll',
+      'vuepress-plugin-code-copy'
     ],
   ],
 };
