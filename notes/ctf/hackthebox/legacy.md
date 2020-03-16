@@ -1,4 +1,4 @@
-# Legacy machine
+# Legacy
 
 ## Initial scan
 
