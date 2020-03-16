@@ -1,4 +1,4 @@
-# Lame box
+# Lame
 
 IP: `10.10.10.3`
 
