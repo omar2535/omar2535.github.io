@@ -145,3 +145,18 @@ Hosts = 2^(32 - 27) = 2^(5) = 32 -> 32 - 2 = 30
 Network ID: 192.168.1.0
 Broadcast ID: 192.168.31
 ```
+
+## Exploitation Basics
+
+### Reverse shell vs Bind shell
+
+#### Reverse shell
+
+Targets connects to our machine, we listen
+- most common form of shell
+
+#### Bind shell
+
+Attacker opens a port on the target machine and connects into it
+- Useful for bypassing firewalls or not having to port forward on local port
+
