@@ -16,9 +16,9 @@ In around January, something perculiar happened. UBC closed on a school day for 
 
 Fast foward to february, when the WHO started raising the alarms of a potential pandemic. Despite the warnings to contain the epedemic, many countries still simply chose to ignore the obvious signals. Schools in Canada were still open and the markets were in a huge upswing.
 
-Then, something happened.
+Then all of a sudden, the music stopped.
 
-Italy shut down their borders. An unprecedented move that seems like only China could pull off. This was one of the first major signs that the virus was spreading all over the world.
+Italy shut down their borders. An unprecedented move that seems like only China could pull off. One of the first major signs that the virus was spreading all over the world.
 
 In an attempt to boost spending amid this COVID19 slump, the feds and bank of canada decides to lower interest rates. This didn't help much.
 
