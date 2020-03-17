@@ -18,12 +18,13 @@ module.exports = {
     }
   },
   plugins: [
-    [
-      'vuepress-plugin-mathjax',
-      '@vuepress/back-to-top',
-      '@vuepress/plugin-nprogress',
-      'vuepress-plugin-smooth-scroll',
-      'vuepress-plugin-code-copy'
-    ],
+    ['vuepress-plugin-mathjax'],
+    '@vuepress/back-to-top',
+    'vuepress-plugin-smooth-scroll',
+    ['vuepress-plugin-code-copy', true],
+    ['vuepress-plugin-container'],
+    ['vuepress-plugin-reading-time'],
+    ['reading-progress'],
+    ['element-ui'],
   ],
 };

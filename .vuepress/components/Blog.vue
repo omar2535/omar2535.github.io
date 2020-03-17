@@ -14,9 +14,9 @@
             <router-link :to="post.path">
               <h3 class="card-title">{{ post.frontmatter.title }} </h3>
             </router-link>
-            <h6 class="card-author"> {{post.frontmatter.author }} </h6>
+            <h6 class="card-author"> {{ post.frontmatter.author }} </h6>
             <hr />
-            <p class="card-text"> {{post.frontmatter.description}} </p>
+            <p class="card-text"> {{ post.frontmatter.description }} </p>
             <p class="card-text"><small class="text-muted">{{ new Date(post.frontmatter.date).toLocaleDateString() }} </small></p>
           </div>
         </div>
