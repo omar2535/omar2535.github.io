@@ -160,3 +160,16 @@ Targets connects to our machine, we listen
 Attacker opens a port on the target machine and connects into it
 - Useful for bypassing firewalls or not having to port forward on local port
 
+### Staged vs Non-staged payloads
+
+#### Staged payloads
+
+- Sends exploit shellcode in stages
+- Less stable
+- example: windows/meterpreter/reverse_tcp
+
+#### Non-Staged payloads
+
+- Sends exploit shellcode all at once
+- Larger in size and won't always work
+- example: windows/meterpreter_reverse_tcp
