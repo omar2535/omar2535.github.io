@@ -2,6 +2,11 @@
 
 For the thermodynamics course I took at UBC with professor Joanna Karczmarek.
 
-## My review of the course
+## Table of contents
+- General notes: [notes](./notes.md)
+- Test notes:
+  - [notes for test3](test3_notes.md)
 
-Will update once course is over
+## Course review
+
+🚧 Will update once course is over 🚧

@@ -2,6 +2,20 @@
 
 ## General notes
 
+### Ideal gas law
+
+- P = pressure of gas
+- V = volume of gas
+- n = number of moles
+- R = gas constant, $8.314 \frac{J}{K\text{mol}}$
+- T = temperature in kelvin
+- N = number of atoms
+- K = Boltzman's constant, $1.381\times 10^{-23}J/K$
+
+$$PV=nRT$$ 
+$$PV=NKT$$
+
+
 ### During adiabatic compression 
 1. $PV^{\gamma} = const$, $\gamma = (f+2)/f$
 2. $VT^{\frac{f}{2}} = const$
