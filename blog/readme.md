@@ -1,1 +1,5 @@
+---
+readingShow: false
+---
+
 <Blog />
