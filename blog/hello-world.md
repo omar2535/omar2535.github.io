@@ -3,10 +3,11 @@ title: Hello world
 description: When we first start progrmaming, our first program is usually hello world.
 date: 2020-03-10
 author: Omar Tsai
-category: anime
 ---
 
 # Hello world
+
+Here is hello world in some different programming languages
 
 ```python
 print("Hello world!")

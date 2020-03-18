@@ -22,7 +22,21 @@ module.exports = {
     '@vuepress/back-to-top',
     'vuepress-plugin-smooth-scroll',
     ['vuepress-plugin-code-copy', false],
-    ['vuepress-plugin-container'],
+    [
+      'vuepress-plugin-container',
+      {
+        type: 'right',
+        defaultTitle: '',
+      },
+    ],
+    [
+      'vuepress-plugin-container',
+      {
+        type: 'theorem',
+        before: info => `<div class="theorem"><p class="title">${info}</p>`,
+        after: '</div>',
+      },
+    ],
     ['vuepress-plugin-reading-time'],
     ['reading-progress'],
     ['element-ui'],
