@@ -1,4 +1,5 @@
 let generateChildren = require('@omar2535/vuepress-sidebar-children-autogenerator');
+let pluginConfig = require('./plugin_config');
 
 module.exports = {
   title: "Omar2535",
@@ -17,28 +18,5 @@ module.exports = {
       ]
     }
   },
-  plugins: [
-    ['vuepress-plugin-mathjax'],
-    '@vuepress/back-to-top',
-    'vuepress-plugin-smooth-scroll',
-    ['vuepress-plugin-code-copy', false],
-    [
-      'vuepress-plugin-container',
-      {
-        type: 'right',
-        defaultTitle: '',
-      },
-    ],
-    [
-      'vuepress-plugin-container',
-      {
-        type: 'theorem',
-        before: info => `<div class="theorem"><p class="title">${info}</p>`,
-        after: '</div>',
-      },
-    ],
-    ['vuepress-plugin-reading-time'],
-    ['reading-progress'],
-    ['element-ui'],
-  ],
+  plugins: pluginConfig
 };
