@@ -31,6 +31,10 @@ Notes to study for the third test of this course
   - $\Delta U = Q + W$
   - $\Delta F = Q + W - T\Delta S$
 - **Enthalpy**: $H = U + PV$
+  - $\Delta H = \Delta U + \Delta (PV)$
+  - $\Delta H = Q - W + \Delta P V + P\Delta V$
+  - $\Delta H = Q - P \Delta V + \Delta P V + P\Delta V$
+  - $\Delta H = Q + \Delta P V$
 - **Gibb's free energy**: $G = H - TS$
   - $G = U + PV - TS$
   - $G = F + PV$
@@ -50,16 +54,19 @@ Notes to study for the third test of this course
       - $P = P_0e^{L(T-T_0)/RT_0T} \approx P_0e^{L(T-T_0)/RT_0^2}\approx P_0+\frac{P_0L}{RT_0^2}(T-T_0)$
     - Partial pressures for each component are proportional to number of particles of that component
       - Ex: $\frac{P_{\text{partial}}(H_2O)}{P_{\text{total}}} =\frac{N(H_2O)}{N_{\text{total}}}$
+      - At 39 degrees celcius and 0.07atm, at 100% humidity, air is about 7% vapor by volume
 
 ## Heat engines
 
-efficiency $e \equiv \frac{\text{desirable output}}{\text{cost}} = \frac{W}{Q_h} = \frac{Q_h - Q_c}{Q_h}$ where $Q_h$ is $Q_{in}$ and $Q_c$is $Q_{out}$\
-efficiency has a bound: $e \leq 1- \frac{T_c^{\text{reservoir}}}{T_h^{\text{reservoir}}}$\
-efficiency max: $e_{max} = e_{carnot} = 1 - \frac{T_c}{T_h}$
+- **Carnot cycle efficiency** $e \equiv \frac{\text{desirable output}}{\text{cost}} = \frac{W}{Q_h} = \frac{Q_h - Q_c}{Q_h}$ where $Q_h$ is $Q_{in}$ and $Q_c$is $Q_{out}$
+  - Requires that the cycle must be **reversible** and involves no change in **entropy**
+- efficiency has a bound: $e \leq 1- \frac{T_c^{\text{reservoir}}}{T_h^{\text{reservoir}}}$
+- efficiency max: $e_{max} = e_{carnot} = 1 - \frac{T_c}{T_h}$
 - **First law** (conservation of energy) states that $e\leq 1$ (cannot win)
 - **Second law** states that $e \leq 1-\frac{T_c}{T_h}$ (cannot break even)
 
-if process is reliable, efficiency is exactly $1 - \frac{T_c^{\text{reservoir}}}{T_h^{\text{reservoir}}}$
+if the whole process is reversible, efficiency: $e = 1 - \frac{T_c^{\text{reservoir}}}{T_h^{\text{reservoir}}}$ exactly.
+
 
 ## Refrigerators
 
@@ -70,8 +77,25 @@ $\text{COP} \equiv \frac{\text{desirable output}}{\text{the cost}} = \frac{Q_c}{
 
 where $W + Q_{\text{in}} = Q_{\text{out}}$, $Q_{\text{in}} = Q_c$, $Q_{\text{out}} = Q_h$
 
-$\text{COP}_{\text{max}} = \frac{T_c}{T_h - T_c}$
+$\text{COP}_{\text{max}} = \frac{T_c}{T_h - T_c}$ for refrigerators
 
+## Throttling
+
+A throttling process is a process where there is no enthalpy change between states, no work is done, and the process is adiabatic. It is fundamentally **irreversible**
+
+Ex. 1kg of liquid water at its boiling point at 1atm is throttled so that its temperature is lowered to $20^o\text{C}$. What fraction of water is vaporized?
+
+Ans: Knowing that enthalpy of water $H_{water} = 419$ at 100 degrees, then the enthalpy must be the same since it is a throttled process. Let $x$ be the unknown vaporized water. $H_{water} = (1-x)H_{water} + H_{steam}$
+
+## Battery voltage
+
+Given $\Delta G$ and $\Delta H$, one can easily calculate the battery voltage with:
+$$Voltage = \frac{work}{charge} = \frac{-\Delta G}{\# electrons \times e \times N_A}$$
+where $N_A$ is avagadro's number and e is the charge of an electron
+
+### Reversible batteries
+
+For reversible operation of batteries in the base case scenario, $Q = T\Delta S = \Delta H - \Delta G$ where a $+$ sign for $Q$ means heat flows into the battery.
 
 ## Relationships of formulas
 $H = U + PV$\
@@ -92,3 +116,5 @@ $G = H - TS$
 ## Fundamental theorems
 $$\Delta S_{\text{universe}} \ge 0$$
 
+For ideal gas:
+$$H = U + PV = \frac{f}{2}NkT + NkT = \frac{f+2}{2}NkT$$
