@@ -1,4 +1,4 @@
-# Nibbles box
+# Nibbles
 
 Address: `10.10.10.75`
 
