@@ -122,3 +122,7 @@ nc -nvlp 5555
 ```
 
 and once the CRON job runs the python file, we are able to get a reverse shell.
+
+## Extra notes
+
+You can spawn a TTY shell with a few commands. Listed here: [TTY spawn](https://netsec.ws/?p=337)
