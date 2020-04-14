@@ -3,6 +3,7 @@ let pluginConfig = [
   '@vuepress/back-to-top',
   'vuepress-plugin-smooth-scroll',
   ['vuepress-plugin-code-copy', false],
+  'vuepress-plugin-latex',
   [
     'vuepress-plugin-container',
     {
