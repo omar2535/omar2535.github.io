@@ -90,7 +90,9 @@ Ans: Knowing that enthalpy of water $H_{water} = 419$ at 100 degrees, then the e
 ## Battery voltage
 
 Given $\Delta G$ and $\Delta H$, one can easily calculate the battery voltage with:
+
 $$Voltage = \frac{work}{charge} = \frac{-\Delta G}{\# electrons \times e \times N_A}$$
+
 where $N_A$ is avagadro's number and e is the charge of an electron
 
 ### Reversible batteries
@@ -117,4 +119,5 @@ $G = H - TS$
 $$\Delta S_{\text{universe}} \ge 0$$
 
 For ideal gas:
+
 $$H = U + PV = \frac{f}{2}NkT + NkT = \frac{f+2}{2}NkT$$
