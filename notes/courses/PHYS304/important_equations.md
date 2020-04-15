@@ -45,11 +45,27 @@ $S_+ = \hslash\begin{pmatrix}0 & 1\\ 0 & 0\end{pmatrix}$
 
 $S_- = \hslash\begin{pmatrix}0 & 0\\ 1 & 0\end{pmatrix}$
 
-$P_{+z} = |\langle\uparrow|\chi\rangle|^2$
+$\uparrow = \begin{pmatrix} 1\\0 \end{pmatrix}$
 
-$P_{-z} = |\langle\downarrow|\chi\rangle|^2$
+$\downarrow = \begin{pmatrix} 0\\1 \end{pmatrix}$
 
-$\langle S_z \rangle = \langle \chi | S_z | \chi \rangle$
+$P_{+z} = |\langle\uparrow|\chi\rangle|^2 = |\begin{pmatrix} 1&0 \end{pmatrix} \begin{pmatrix} \chi_{0,0} \\ \chi_{1,0} \\ \end{pmatrix}|^2$
+
+$P_{-z} = |\langle\downarrow|\chi\rangle|^2 = |\begin{pmatrix} 0&1 \end{pmatrix} \begin{pmatrix} \chi_{0,0}  \\ \chi_{1,0}\\ \end{pmatrix}|^2$
+
+$P_{+y} = \langle \chi_{+y}|\chi\rangle$
+
+$P_{-y} = \langle \chi_{-y}|\chi\rangle$
+
+$S_{y}\chi_{+y} = \frac{\hbar}{2}\chi_{+y}$
+
+$S_{y}\chi_{-y} = \frac{\hbar}{2}\chi_{-y}$
+
+$\langle S_z \rangle = \langle \chi | S_z | \chi \rangle = \chi^*S_z\chi$
+
+$\langle S_x \rangle = \langle \chi | S_x | \chi \rangle = \chi^*S_s\chi$
+
+$\langle S_y \rangle = \langle \chi | S_y | \chi \rangle = \chi^*S_y\chi$
 
 ## The hydrogen atom
 
@@ -57,3 +73,8 @@ $R_{n,l}(r) = \frac{1}{r}\rho^{l+1}e^{-\rho}v(\rho)$
 
 $\langle\Psi|H|\Psi\rangle = \sum E \times P$
 
+Energy levels: $E_n = \frac{E_0}{n^2}$
+
+## Clebsch-Gordan coefficients
+
+$l$ and $s$ tell which table to look at. $m$ and $s_s$ or $s_z$ tell which column to look at.
