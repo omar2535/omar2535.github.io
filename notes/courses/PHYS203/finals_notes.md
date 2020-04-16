@@ -2,7 +2,7 @@
 
 ## Boltzman factor
 
-$$e^{-\beta E}$$
+$$e^{-\beta E} = e^{-\frac{E_i}{kT}}$$
 
 Probability a system will occur in a given state is proportional to the **Boltzman factor**
 
@@ -31,7 +31,7 @@ where
 $$Z = \sum_{\text{energies E}}\Omega(E)e^{-\beta E}$$
 
 
-## Microcannonical VS cannonical approach
+## Microcannonical / Cannonical approach
 
 Hold at **constant** volume $V$ and number of particles $N$
 
@@ -126,3 +126,89 @@ $$\text{\# of particles: }N = \sum_{\text{states }i}n(E_i) = \int n(E)dk = \int 
 
 $$\text{internal energy: } U = \sum_{\text{states} i}E_in(E_i) = \int En(E)dk = \int En(E)g(E)dE$$
 
+## Helmholtz free energy
+
+Helmholtz free energy measures the useful work obtainable from a closed thermodynamic system at **constant temeprature and volume**.
+
+$$ \boxed{F = U - TS} $$
+
+Alternate forms:
+
+$$\Delta F = \Delta U - T\Delta S$$
+
+$$\Delta F = Q + W - T\Delta S$$
+
+$$F = -kT\ln Z $$
+
+- $F$ must stay the same if a process is **reversible**, $Q = T\Delta S$
+- $F$ must decrease if a process is **irreversible**, $Q < T\Delta S$
+
+## Gibbs free energy
+
+Gibbs free energy is a thermodynamic potential used to calculate maximum of reversible work performed by a thermodynamic system at **constant temperature and pressure**.
+
+$$\boxed{\Delta G = \Delta H - T\Delta S}$$
+
+Alternate forms:
+
+$$G = U + PV - TS$$
+$$G = F + PV$$
+
+- **Spontaneous** process will have $\Delta G < 0$
+- **Non-Spontaneous** process will have $\Delta G > 0$
+- Phase with lower Gibbs free energy is more stable
+
+## Entropy
+
+Entropy is an **extensive property** (depends on size of system) of a thermodynamic system.
+
+$$\boxed{S = k_B\ln{\Omega}}$$
+
+- **Spontaneous** process will have $\Delta S > 0$ at **constant volume and energy**
+
+## Batteries
+
+### Heat generated
+
+$$\boxed{Q = -T\Delta S = \Delta G - \Delta H}$$
+
+### Voltage of battery
+
+$$\boxed{\text{voltage} = \frac{work}{2\times N_A \times e^-}}$$
+
+### Entropy in universe
+
+$$\Delta S = \frac{-Q}{T} = \frac{\Delta H - \Delta G}{T}$$
+
+## Power emitted by hot surfaces
+
+### How fast energy is leaking out
+
+$$\dot{U} = \frac{\text{energy}}{\text{time}} = (\text{intensity})(\text{area})$$
+
+### Intensity
+
+#### General formula
+
+$$I = \text{Intensity} = \frac{\text{energy}}{(\text{time})(\text{area})}$$
+
+#### For spheres
+
+$$I \propto T^4R^2$$
+
+## Chemical potential
+
+Chemical potential is an **intensive** quantity (independant on size of system) that is the same when two systems are in diffusive equilibrium
+
+$$\boxed{\mu \equiv -T\left.\frac{\partial S}{\partial N}\right\vert_{U,V}} $$
+
+Alternate forms:
+
+$$\left.-T \frac{\partial (-kT \ln Z)}{\partial N}\right\vert_{T,V,N}$$
+
+- particles flow from **high** potential to **low** potential
+- relates to **free energy** by $\mu_i = \left.(\frac{\partial F}{\partial N_i})\right\vert_{T,V,N_{j\neq i}}$ where $F = -kT\ln Z$
+
+## Stirling's approximation
+
+$$\boxed{\ln n! = n\ln n - n + O(\ln n)}$$
