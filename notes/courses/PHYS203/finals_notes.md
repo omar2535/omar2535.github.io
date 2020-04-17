@@ -204,7 +204,7 @@ $$\boxed{\mu \equiv -T\left.\frac{\partial S}{\partial N}\right\vert_{U,V}} $$
 
 Alternate forms:
 
-$$\left.-T \frac{\partial (-kT \ln Z)}{\partial N}\right\vert_{T,V,N}$$
+$$\mu = \left. \frac{\partial (-kT \ln Z)}{\partial N}\right\vert_{T,V,N}$$
 
 - particles flow from **high** potential to **low** potential
 - relates to **free energy** by $\mu_i = \left.(\frac{\partial F}{\partial N_i})\right\vert_{T,V,N_{j\neq i}}$ where $F = -kT\ln Z$
