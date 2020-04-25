@@ -162,3 +162,60 @@ A class must be **closed** for internal change but **open** for extensions
 - Have small, role-specific interfaces
 - Depend upon abstractions, not implementations
 - Rework design so that changes are **localized**
+
+## Objected oriented design patterns
+
+There are 3 main categories of design patters. 
+
+1. Creational design patterns are design pattersn that deal with object creation mechanisms, trying to create objects in a manner suitable to the situation.
+
+2. Structural design patterns are design patterns that ease the design by identifying a simple way to realized relationships between entities.
+
+3. Behavioural design patterns are design patterns that identify common communication patterns between objects and realize these patterns.
+
+### Factory pattern
+
+- Construction of object is complicated and for some reason involves behaviour outside the scope of the responsibility of the class itself.
+- Not sure what kind of object you want to create at any particular time
+- Solve this by implementing methods that create objects based on condition then run a common abstracted method
+
+### Adapter pattern
+
+- Convert interface of class into another interface clients expect
+- Adapter lets classes work together that couldn't otherwise because of incompatible interfaces
+- Wrap an existing class with a new interface
+
+## Ethics
+
+### General ethical principles
+
+1. Contribute to society and to human well-being, acknowledging that all people are stakeholders in computing
+2. Avoid harm
+3. Be honest and trustworthy
+4. Be fair and take action not to descriminate
+5. Respect the work required to produce new ideas, inventions, creative works, and computing artifacts
+6. Respect privacy
+7. Honor confidentiality
+
+### Professional responsibilities
+
+1. Strive to achieve high quality in both the provesses and products of professional work
+2. Maintain high standards of professional competence, conduct, and ethical practice
+3. Know and respect existing rules pertaining to professional work
+4. Accept and provide appropriate professional review
+5. Give comprehensive and thorough evaluations of computer systems and their impacts, including analysis of possible risks
+6. Perform work only in areas of competence
+7. Foster public awareness and understanding of computing, related technologies, and their consequences
+8. Access computing and communication resources only when authorized or when compelled by the public good
+9. Design and implement systems that are robustly and usably secure
+
+### Professional leadership principles
+
+1. Ensure that the public good is the central concern during all professional computing work
+2. Articulate, encourage acceptance of, and evaluate fulfillment of social responsiblities by members of the organization of group.
+3. Manage personnel and resources to enhance quality of working life
+4. Articulate, apply, and support policies and processes that reflect the principles of the code
+5. Create opportunities for members of the organization or group to grow as professionals
+6. Use care when modifying or retiring systems
+7. Recognize and take special care of systems that become integrated into the infrastructure of society.
+
