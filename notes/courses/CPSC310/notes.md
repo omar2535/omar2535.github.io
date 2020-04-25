@@ -35,14 +35,14 @@
         - PUT: Store a resource at existing URI
         - DELETE: remove a resource
     - Every resource must support all four verbs
-- Client maintains state
+- Client maintains state **(statelessness)**
     - server doesn't retain any state about the client
     - every request can be thought of as a one-off request
 - Servers maintain resource structure **(connectedness)**
     - Does not force client to recall internal structure of server resources
     - Provice relevant links inside returned resources
     - Server sends links to related resources
-- **Idempotence is important**
+- **Idempotence is important**, means that requests will result in the same state on the server regardless of how many times that same request is executed
 
 ## Design Principles
 
@@ -139,7 +139,7 @@ A class must be **closed** for internal change but **open** for extensions
 *many client-specific interfaces are better than one general-purpose interface*
 
 - No client should be forced to depend on methods it does not use
-- No implementation clas should be forced to provide methods that do not fit into its abstraction
+- No implementation class should be forced to provide methods that do not fit into its abstraction
 - A move towards role-based interfaces
 - Clients need only know about the methods that are of interest to them
 - Relates to high cohesion
@@ -185,9 +185,22 @@ There are 3 main categories of design patters.
 - Adapter lets classes work together that couldn't otherwise because of incompatible interfaces
 - Wrap an existing class with a new interface
 
+### State pattern
+
+- A behavioral design pattern that lets an object alter its behavior when its internal state changes. It appears as if the object changed its class.
+
+### Strategy pattern
+
+- Identical to state pattern except the client is choosing a single strategy and sticking with it
+- Like if a barista never changed their mood state and stuck with it forever
+
+### Composite design pattern
+
+- By abstracting objects to a higher level such that code smells are reduced
+
 ## Ethics
 
-### General ethical principles
+### 1 General ethical principles
 
 1. Contribute to society and to human well-being, acknowledging that all people are stakeholders in computing
 2. Avoid harm
@@ -197,7 +210,7 @@ There are 3 main categories of design patters.
 6. Respect privacy
 7. Honor confidentiality
 
-### Professional responsibilities
+### 2 Professional responsibilities
 
 1. Strive to achieve high quality in both the provesses and products of professional work
 2. Maintain high standards of professional competence, conduct, and ethical practice
@@ -209,7 +222,7 @@ There are 3 main categories of design patters.
 8. Access computing and communication resources only when authorized or when compelled by the public good
 9. Design and implement systems that are robustly and usably secure
 
-### Professional leadership principles
+### 3 Professional leadership principles
 
 1. Ensure that the public good is the central concern during all professional computing work
 2. Articulate, encourage acceptance of, and evaluate fulfillment of social responsiblities by members of the organization of group.
