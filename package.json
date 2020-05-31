@@ -10,6 +10,7 @@
     "vuepress-plugin-reading-progress": "^1.0.8"
   },
   "scripts": {},
+  "license": "UNLICENSED",
   "devDependencies": {
     "@vuepress/plugin-back-to-top": "^1.3.1",
     "@vuepress/plugin-nprogress": "^1.3.1",

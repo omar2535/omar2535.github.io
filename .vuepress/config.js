@@ -16,7 +16,8 @@ module.exports = {
       '/notes/': generateChildren('/notes/'),
       '/blog/': [
       ]
-    }
+    },
+    lastUpdated: 'Last Updated',
   },
   plugins: pluginConfig
 };
