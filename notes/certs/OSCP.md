@@ -1,4 +1,4 @@
-# OSCP notes
+# OSCP Notes
 
 ## Bind shell vs reverse shell
 
@@ -535,13 +535,7 @@ foreach( $result in $results ) {
 	Write-host ""
 }
 ```
-## Password cracking
 
-### Hash identifier
-
-```sh
-hash-identifier AAFDC23870ECBCD3D557B6423A8982134E17927E
-```
 
 ### Mimikatz
 
@@ -791,4 +785,12 @@ Microsoft Windows [Version 10.0.14393]
 
 C:\Windows\system32>whoami
 corp\fakeuser
+```
+
+## Password cracking
+
+### Hash identifier
+
+```sh
+hash-identifier AAFDC23870ECBCD3D557B6423A8982134E17927E
 ```
