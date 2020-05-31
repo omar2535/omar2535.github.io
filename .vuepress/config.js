@@ -17,7 +17,7 @@ module.exports = {
       '/blog/': [
       ]
     },
-    lastUpdated: 'Last Updated',
+    // lastUpdated: 'Last Updated',
   },
   plugins: pluginConfig
 };
