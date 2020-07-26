@@ -14,11 +14,11 @@ Here are my thoughts and experiences after taking the OSCP exam for the first ti
 
 ### Preperation
 
-I prepared for this exam by signing up for 90 days of the OSCP labs. I only did around 20 machines - just enough to get the 5 bonus points for finishing the course excercises and writing a report on 10 machines. Other resources I used for preparation include HTB (doing TJnull's list [here](https://pbs.twimg.com/media/ECG-gPnW4AMs32A.jpg:largeS)) and going through another [list](https://github.com/J3rryBl4nks/VirtualHackingLabs) for VHL.
+Going into the exam, I only did around 20 machines - just enough to get the 5 bonus points for finishing the course excercises and lab report. Asides from the lab machines, I also used hack the box (doing TJnull's list [here](https://pbs.twimg.com/media/ECG-gPnW4AMs32A.jpg:largeS)) and going through virtual hacking lab machines ([list](https://github.com/J3rryBl4nks/VirtualHackingLabs) here).
 
 ### Exam booking
 
-I booked my exam for 8:00 am on saturday through the OSCP console. I suggest anyone reading to book your exam at least a month ahead of schedule because weekends will most likely be fully booked leaving only weekdays open.
+I booked my exam for 8:00 am on saturday through the OSCP console. I suggest anyone reading to book your exam at least a month ahead because weekends will most likely be fully booked leaving only weekdays open. I learned this the hard way nad had to constantly check daily for a closer slot to when my labs ended.
 
 ### Exam start
 
@@ -61,3 +61,8 @@ I only ended up with 45 points. Not even close enough to pass. Honestly a bit th
 - Enumerate more
 - Learn more about privilege escalation
 - Learn more about networking
+- Take more breaks
+
+### Future
+
+For the next exam, I will try to book it at night. This way once I finish the buffer overflow machine and the 10 pointer, I can sleep and feel refreshed to tackle the rest of the machines.
