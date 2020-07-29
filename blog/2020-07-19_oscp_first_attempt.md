@@ -8,7 +8,7 @@ author: Omar Tsai
 
 ## OSCP Attempt \# 1
 
-![UBC image](/images/blog/oscp_image.png)
+![OSCP image](/images/blog/oscp_image.png)
 
 Here are my thoughts and experiences after taking the OSCP exam for the first time.
 
