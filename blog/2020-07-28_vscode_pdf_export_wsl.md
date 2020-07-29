@@ -2,7 +2,7 @@
 title: VScode markdown pdf in WSL1
 description: How do I convert markdown to pdf in vscode WSL
 image: /images/blog/vscode_markdown_pdf.PNG
-date: 2020-07-19
+date: 2020-07-29
 author: Omar Tsai
 ---
 
