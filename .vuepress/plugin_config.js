@@ -2,6 +2,12 @@ let pluginConfig = [
   ['vuepress-plugin-mathjax'],
   '@vuepress/back-to-top',
   'vuepress-plugin-smooth-scroll',
+  [
+    'disqus',
+    { 
+      "shortname": "thaomar-website"
+    }
+  ],
   ['vuepress-plugin-code-copy', false],
   'vuepress-plugin-latex',
   [

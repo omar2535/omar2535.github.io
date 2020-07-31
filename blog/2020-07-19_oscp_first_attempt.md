@@ -66,3 +66,5 @@ I only ended up with 45 points. Not even close enough to pass. Honestly a bit th
 ### Future
 
 For the next exam, I will try to book it at night. This way once I finish the buffer overflow machine and the 10 pointer, I can sleep and feel refreshed to tackle the rest of the machines.
+
+<Disqus />
