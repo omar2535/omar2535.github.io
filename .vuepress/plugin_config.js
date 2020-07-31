@@ -23,6 +23,7 @@ let pluginConfig = [
         distractionFreeMode: false,
         id: '<%- window.md5(frontmatter.to.path || window.location.pathname) %>',
         body: '<%- frontmatter.title %>：<%-window.location.origin %><%- frontmatter.to.path || window.location.pathname %>',
+        title: 'omar2535 <%- frontmatter.title %>'
       }
     }
   ],
