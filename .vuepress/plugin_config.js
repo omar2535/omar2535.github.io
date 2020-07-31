@@ -24,6 +24,7 @@ let pluginConfig = [
         id: '<%- frontmatter.commentid || frontmatter.permalink %>',
         title: '「Comment」<%- frontmatter.title %>',
         body: '<%- frontmatter.title %>：<%-window.location.origin %><%- frontmatter.to.path || window.location.pathname %>',
+        labels: ['Gitalk']
       }
     }
   ],
