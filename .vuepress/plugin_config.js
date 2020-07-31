@@ -21,9 +21,9 @@ let pluginConfig = [
         owner: 'omar2535',
         admin: ['omar2535'],
         distractionFreeMode: false,
-        id: '<%- window.md5(frontmatter.to.path || window.location.pathname) %>',
+        id: '<%- frontmatter.commentid || frontmatter.permalink %>',
+        title: '「Comment」<%- frontmatter.title %>',
         body: '<%- frontmatter.title %>：<%-window.location.origin %><%- frontmatter.to.path || window.location.pathname %>',
-        title: 'omar2535 <%- frontmatter.title %>'
       }
     }
   ],
