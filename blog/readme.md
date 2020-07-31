@@ -1,5 +1,5 @@
 ---
-readingShow: false
+comment: false
 ---
 
 <Blog />
