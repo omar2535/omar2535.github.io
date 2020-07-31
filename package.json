@@ -15,6 +15,7 @@
     "@vuepress/plugin-back-to-top": "^1.5.2",
     "@vuepress/plugin-nprogress": "^1.5.2",
     "vuepress-plugin-container": "^2.1.4",
+    "vuepress-plugin-disqus": "^0.2.0",
     "vuepress-plugin-element-ui": "^1.1.0",
     "vuepress-plugin-reading-time": "^0.1.1",
     "vuepress-plugin-robots": "^1.0.1",
