@@ -11,11 +11,20 @@ let pluginConfig = [
   ['vuepress-plugin-code-copy', false],
   'vuepress-plugin-latex',
   [
-    'vuepress-plugin-container',
+    'vuepress-plugin-comment',
     {
-      type: 'right',
-      defaultTitle: '',
-    },
+      choosen: 'gitalk', 
+      options: {
+        clientID: '9f9d92cb188cb13ac0b9',
+        clientSecret: '568586ce3927803255eaf413edae97ecab26900b',
+        repo: 'omar2535',
+        owner: 'omar2535',
+        admin: ['omar2535'],
+        distractionFreeMode: false,
+        id: '<%- window.md5(frontmatter.to.path || window.location.pathname) %>',
+        body: '<%- frontmatter.title %>：<%-window.location.origin %><%- frontmatter.to.path || window.location.pathname %>',
+      }
+    }
   ],
   [
     'vuepress-plugin-container',
