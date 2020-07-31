@@ -10,7 +10,7 @@ author: Omar Tsai
 
 ![vscode image](/images/blog/vscode_markdown_pdf.PNG)
 
-Today I was really struggling to convert my pentesting writeups to PDF. For a little context, my notes are kept in a vscode workspace fully written in markdown. Each machine has their own markdown file and images are imply imported into the markdown file by path inclusion. The main reason I chose to do this was because I was already familiar with markdown and I liked having easy files to commit to github which I use as my main source of backup.
+Today I was really struggling to convert my pentesting writeups to PDF. For a little context, my notes are kept in a vscode workspace fully written in markdown. Each machine has their own markdown file and images are simply imported into the markdown file by path inclusion. The main reason I chose to do this was because I was already familiar with markdown and I liked having easy files to commit to github which I use as my main source of backup.
 
 ## Context
 
