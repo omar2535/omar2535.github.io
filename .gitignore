@@ -2,3 +2,4 @@ node_modules
 .vuepress/dist
 */out/*
 /out
+out

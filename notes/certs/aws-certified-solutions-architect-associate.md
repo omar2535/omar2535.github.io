@@ -133,6 +133,8 @@
 - additional EBS volumes that are not the root EBS volume **will not** be automatically deleted when EC2 instance is terminated
 - **Snapshots** exists on S3
   - Can create AMI's from snapshots
+- **EBS Optimization**:
+  - Optimizes network traffic to the EBS volume
 
 #### Types of EBS Volumes
 
@@ -149,6 +151,7 @@
 
 ### Instance Store
 
+- High speed storage physically attached to the EC2 instance
 - Ephemeral storage
 - Instance store volumes cannot be stopped. If uderlying host fails, you will lose data
 - Can be rebooted
@@ -170,13 +173,91 @@
 - **Q**: How to move EC2&EBS to another region?
 - **A**: Create a snapshot, then create an amazon machine image (AMI) from the snapshot, copy the AMI from one region to the other, then create a new EC2 instance with the copied AMI.
 
-### CloudWatch
+## Placement groups (EC2)
 
-- Monitors performance
+- **Cluster**: places EC2 instances inside an AZ for low latency communication usually used for high performance compute
+- **Partition**: To seperate underlying hardware for groups of instances in a partition typically used by large distributed and replicated workloads
+- **Spread placement group**: places EC2 instances across **distinct** underlying hardware to reduce correlated failures
+
+## CloudWatch
+
+- Monitors performance and metrics
 - **Standard monitoring** monitors events every 5 minutes by default
 - **Detailed monitoring** will have 1 minute intervals
 
-### CloudTrail
+## CloudTrail
 
 - Audits account actions
 - Increased visibility on AWS account logs (IE. who made the S3 bucket)
+- For monitoring API calls as well
+
+## Redshift
+
+- SQL based data warehouse for analytics
+- Ideal for processing large amounts of data
+- No multi-AZ deployments
+- Backups to s3
+
+## Athena
+
+- serverless query service to analyze data in S3 via SQL queries
+- integrates with AWS glue
+
+## FSx
+
+- Fast performance of commercially available file systems
+- **FSx windows file server**:
+  - built on AD and SMB
+  - for business applications
+- **FSx luster**:
+  - High performance storage
+
+## ECS
+
+- Fully managed container orchestration service
+- **Task definition**:
+  - Required to run docker containers in ECS
+    - Needs to specify docker image to use with each instance in your task
+    - How much CPU and memory for each task
+    - The launch type
+    - IAM role tasks in this task definition should use
+
+## DynamoDB
+
+- Scalable NoSQL database
+- **Amazon DynamoDB Accelerator (DAX)**:
+  - fully managed in memory cache for dynamoDB
+  - highly scalable
+- No read replicas (doesn't need them)
+
+## AWS Shield
+
+- DDOS protection
+- No additional cost
+
+## AWS Web Application Firewall (WAF)
+
+- Blocks common attack patterns ie. SQL injections, XSS, and other custom rules
+- Can be deployed in cloudfront, ALB, or EC2/APIG.
+
+## AWS privatelink
+
+- Private connection between VPC's, AWS services, and on-premise applications
+- Connect services across different accounts and VPC's
+- Can use **VPC endpoints** with privatelink to privately connect to VPC without the need for internet gateways, NAT devices, VPN connections, or AWS direct connect connections
+
+## NAT gateway
+
+- network addrses translation table
+- enable instances inside a private subnet to connect to the internet or other AWS services
+- prevents internet from initiating a connection with those instances
+- charged hourly
+
+## Internet gateway
+
+- Allows connection from the internet to the VPC
+
+## AWS direct connect
+
+- establish dedicated network connection from premise to AWS
+- more consistent than internet-based connections
