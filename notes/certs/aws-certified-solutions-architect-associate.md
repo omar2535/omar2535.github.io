@@ -261,3 +261,78 @@
 
 - establish dedicated network connection from premise to AWS
 - more consistent than internet-based connections
+- not for VPC's
+
+## AWS DataSync
+
+- Simple way to move large amounts of data from on-premises storage and S3, EFS, or FSx
+- Used for migrating data (**not databases**)
+
+## Lambda
+
+- Environment variables are encrypted at rest (after deployment)
+
+## EC2
+
+- When doing maintenance, put EC2 on **standby** state (will still be charged)
+- **InsufficientInstanceCapacity** when AWS does not have enough on-demand instances available
+- **InstanceLimitExceeded** when limit on number of instances launched in a region is met
+- Can use **launch templates** to store settings such as AMI ID, instance type, key pairs, and security groups
+- **auto scaling**
+  - use **launch configurations** to specify what AMI to launch
+    - must create a new launch config when making changes to AMI
+  - Performs rebalancing when number of instances accross AZ's are not balanced
+  - Can send an SNS email
+- **Dedicated instance**: instance that runs in a VPC for a single customer
+- **AWS Opswork**
+  - provides automatic configuration of servers through chef and puppet
+- **AWS runcommand**
+  - allows ad-hoc commands to be run across EC2 instances
+- **AWS userdata**
+  - allows setup scripts to be ran when EC2 instance first launches
+- **AWS codedeploy**
+  - allows automatic software deployments to EC2, lambda, or servers
+
+## EC2 networking
+
+- **ENI**: Basic networking
+- **ENA**: elastic network adapter: betwen 10gbps or 100gbps
+- **EFA**: lastic fabric adapter: for HPC or OS by-pass
+
+## AWS batch
+
+- used for batch processing operations without need to manage servers
+
+
+## AWS Elastic beanstalk
+
+- Deploys and scales web applications and services developed in Java, .NET, python, ruby, and others.
+- Deploys, load balances, auto-scales, and health monitors for you
+- is a platform-as-a-service (PaaS) - means that scaling is handled for us
+- different from cloudFormation in that we don't need to manage scaling ourselves
+
+## AWS step functions
+
+- Cordinates workflows to sequence lambda functions and multiple AWS services into business-critical applications
+
+## AWS config
+
+- assess and evaluate configurations of AWS resources
+
+## RDS
+
+- Snapshot encryption is only available if the database itself is encrypted or the encrypt database option is selected when first created
+
+## AWS EMR
+
+- process vast amounts of data
+- uses hadoop
+- on demand
+- elasticity is important
+- **Hive** uses SQL queries to interact with data
+
+## AWS kinesis
+
+- **Kinesis data streams**: collect log events in real time
+- **Kinesis data firehose**: reliably load data into datalakes
+
