@@ -89,6 +89,8 @@
 
 ## Storage Gateway
 
+- for connecting on premise to cloud
+- doesn't support access from multiple locations simultaneously
 - **File Gateway**: For flat files, stored directly on S3
 - **Volume Gateway**
   - **Stored Volumes**: Entire Dataset is stored on site and is asyncrhonously backed up to S3
@@ -135,6 +137,17 @@
   - Can create AMI's from snapshots
 - **EBS Optimization**:
   - Optimizes network traffic to the EBS volume
+- **HDD**
+  - large, sequential operations
+  - can't be used as boot volume
+  - streaming data workloads
+  - low cost
+  - mostly for throughput
+- **SSD**
+  - small, random operations
+  - can be used as boot volume
+  - moderate / high cost
+  - for IOPS
 
 #### Types of EBS Volumes
 
@@ -182,6 +195,7 @@
 ## CloudWatch
 
 - Monitors performance and metrics
+- Can set alarms to perform actions such as invoking actions to start/stop EC2 instances
 - **Standard monitoring** monitors events every 5 minutes by default
 - **Detailed monitoring** will have 1 minute intervals
 
@@ -229,11 +243,7 @@
   - fully managed in memory cache for dynamoDB
   - highly scalable
 - No read replicas (doesn't need them)
-
-## AWS Shield
-
-- DDOS protection
-- No additional cost
+- **DynamoDB stream** is an ordered flow of information that changes to items in a DDB table
 
 ## AWS Web Application Firewall (WAF)
 
@@ -251,26 +261,41 @@
 - network addrses translation table
 - enable instances inside a private subnet to connect to the internet or other AWS services
 - prevents internet from initiating a connection with those instances
+- highly available
+- managed for you by aws
 - charged hourly
 
 ## Internet gateway
 
 - Allows connection from the internet to the VPC
+- horizontally scaled, redundant, highly available
 
 ## AWS direct connect
 
 - establish dedicated network connection from premise to AWS
+- for high throughput workloads
 - more consistent than internet-based connections
 - not for VPC's
+
+## Egress-only internet gateway
+
+- allows only IPV6 internet connection from VPC to internet
+- denies internet traffic initiating ipv6 connection with VPC
 
 ## AWS DataSync
 
 - Simple way to move large amounts of data from on-premises storage and S3, EFS, or FSx
 - Used for migrating data (**not databases**)
 
+## AWS global accelerator
+
+- provides static ip address that act as a fixed entry point to your application endpoint
+- single/multiple AWS regions such as ALB, NLB, or EC2 instances
+
 ## Lambda
 
 - Environment variables are encrypted at rest (after deployment)
+- **Canary** deployment ensures deployments are shifted in increments
 
 ## EC2
 
@@ -292,6 +317,51 @@
   - allows setup scripts to be ran when EC2 instance first launches
 - **AWS codedeploy**
   - allows automatic software deployments to EC2, lambda, or servers
+- **instance store** volumes can only be attached when instance is first launched
+
+## Endpoints
+
+- **Gateway endpoint"**
+  - gateway that is target for a specific route
+  - Amazon S3, DynamoDB
+  - VPC endpoint policies
+- **Interface endpoint**
+  - elastic network interface with private endpoints
+  - APIG, CloudFormation, cloudwatch
+  - Security groups
+  - uses privatelink
+
+## VPC
+
+- **Security groups** act as virtual firewalls for an instance
+  - Only has allow rules
+  - stateful
+  - evaluates all rules
+  - default of deny all inbound, allow all outbound
+- **Network ACLs** act as virtual firewalls within a subnet
+  - Can have allow/deny rules
+  - stateless
+  - process rules in order
+  - default of allow all inbound, allow all outbound
+  - custom of deny all inbound, deny all outbound
+- **VPC peering** allows networking connection between two VPCs
+- subnets are associated with route tables when created
+- must provice **security group ID** and **subnet ID** when enabling access to resources inside private VPC
+- **Default VPC** will be assinged with both a public and private DNS when launched
+- **Non-default VPC** will be assigned only a private DNS when launched
+- **transit gateways** allows a centralized place to conenct to all VPCs
+- **flow logs** is used to capture traffic information to and from network interfaces in VPC
+
+## Elastic load balancer (ELB)
+
+- **Application load balancer (ALB):**
+  - layer 7 load balancing
+  - Can enable **access logs** to get information about requester and store data in s3
+  - for HTTP/HTTPS traffic
+- **Network load balancer (NLB):**
+  - layer 4 load balancing
+  - for UDP / TCP traffic
+- closes connections cleanly via **connection draining**
 
 ## EC2 networking
 
@@ -302,7 +372,6 @@
 ## AWS batch
 
 - used for batch processing operations without need to manage servers
-
 
 ## AWS Elastic beanstalk
 
@@ -329,6 +398,7 @@
 - uses hadoop
 - on demand
 - elasticity is important
+- can access ec2 instances that were created by EMR
 - **Hive** uses SQL queries to interact with data
 
 ## AWS kinesis
@@ -336,3 +406,11 @@
 - **Kinesis data streams**: collect log events in real time
 - **Kinesis data firehose**: reliably load data into datalakes
 
+## Misc
+
+- **AWS Macie:** ML powered security service that helps prevent data loss in S3
+- **AWS directory service AD connector:** easy integration with microsoft AD
+- **AWS shield:** DDOS protection at no additional cost
+- **AWS x-ray:** helps developers analyze and debug distributed applications built using the microservice architecture
+- **AWS SWF:** able to coordinate work across distributed application components
+- **Decoupled architecture** requres **SQS** and **SWF**
