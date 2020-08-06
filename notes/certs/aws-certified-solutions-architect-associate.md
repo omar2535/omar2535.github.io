@@ -363,6 +363,11 @@
   - for UDP / TCP traffic
 - closes connections cleanly via **connection draining**
 
+## Load balancing
+
+- **Weighted routing route53**: when you want to unevenly split traffic based on route53
+- **Cross zone load balancing**: when you want to evenly split traffic between all EC2 instances (if there are more instances in one AZ than the other, traffic will still be evenly split among all instances)
+
 ## EC2 networking
 
 - **ENI**: Basic networking
