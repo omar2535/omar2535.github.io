@@ -391,6 +391,7 @@
 ## RDS
 
 - Snapshot encryption is only available if the database itself is encrypted or the encrypt database option is selected when first created
+- ACID compliant
 
 ## AWS EMR
 
@@ -406,6 +407,12 @@
 - **Kinesis data streams**: collect log events in real time
 - **Kinesis data firehose**: reliably load data into datalakes
 
+## SQS
+
+- Queue for processing information or decoupling stacks
+- defaults with **short polling** so only samples a subset of servers to find messages
+- **long polling** will query all servers for messages until timeout expires
+
 ## Misc
 
 - **AWS Macie:** ML powered security service that helps prevent data loss in S3
@@ -414,3 +421,4 @@
 - **AWS x-ray:** helps developers analyze and debug distributed applications built using the microservice architecture
 - **AWS SWF:** able to coordinate work across distributed application components
 - **Decoupled architecture** requres **SQS** and **SWF**
+
