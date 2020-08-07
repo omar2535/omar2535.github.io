@@ -211,6 +211,8 @@
 - Ideal for processing large amounts of data
 - No multi-AZ deployments
 - Backups to s3
+- **Redshift spectrum:** Query data from files directly on s3
+- More control over performance than athena
 
 ## Athena
 
@@ -235,6 +237,14 @@
     - How much CPU and memory for each task
     - The launch type
     - IAM role tasks in this task definition should use
+- Database credentials can be stored in:
+  - **AWS Secrets manager**
+  - **AWS Systems Manager Parameter**
+
+## Encryption client side vs server side
+
+- Client-side encryption: data is encrypted before being sent to AWS
+  - Use either **AWS KMS-managed customer master key** or **client-side master
 
 ## DynamoDB
 
@@ -362,6 +372,7 @@
   - layer 4 load balancing
   - for UDP / TCP traffic
 - closes connections cleanly via **connection draining**
+- Target groups can be used to specify which microservice a load balancer routes to
 
 ## Load balancing
 
@@ -396,7 +407,8 @@
 ## RDS
 
 - Snapshot encryption is only available if the database itself is encrypted or the encrypt database option is selected when first created
-- ACID compliant
+- **Atomic, consistent, isolated, durable (ACID)** compliant
+- IAM DB authentication: allows only authenticated calls to the database (works with **MySQL** and **Postgresql**)
 
 ## AWS EMR
 
@@ -411,6 +423,7 @@
 
 - **Kinesis data streams**: collect log events in real time
 - **Kinesis data firehose**: reliably load data into datalakes
+  - Can load into the following: S3, redshift, elasticsearch, and splunk
 
 ## SQS
 
@@ -426,4 +439,4 @@
 - **AWS x-ray:** helps developers analyze and debug distributed applications built using the microservice architecture
 - **AWS SWF:** able to coordinate work across distributed application components
 - **Decoupled architecture** requres **SQS** and **SWF**
-
+- **AWS Resource Access Manager (RAM**) is a service that enables you to easily and securely share AWS resources with any AWS account or within your AWS Organization
