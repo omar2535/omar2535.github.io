@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>aws-certified-solutions-architect-associate.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="aws-certified-solutions-architect-associate-notes">AWS Certified Solutions architect associate notes</h1>
+<h2 id="identiy-access-management-iam">Identiy Access Management (IAM)</h2>
+<ul>
+<li>Users</li>
+<li>Groups</li>
+<li>Roles</li>
+<li>Policies - Stored as a JSON</li>
+<li>IAM is universal</li>
+<li>New users have <strong>NO</strong> permissions when first created</li>
+<li>Always setup MFA on root account</li>
+</ul>
+<h2 id="s3">S3</h2>
+<ul>
+<li>Object based, 0 - 5TB files</li>
+<li>Read after write consistency for <strong>PUTS</strong> of new objects (can be read right after being created)</li>
+<li>Overwrite <strong>PUTS</strong> and <strong>DELETES</strong> are eventual consistency (will have to wait a bit)</li>
+<li>Bucket names <strong>must</strong> be unique (global namespace)</li>
+<li>Uploading objects to s3 will return <strong>HTTP 200</strong> Code</li>
+<li>Control access to buckets using either <strong>bucket ACL</strong> or <strong>bucket policies</strong>
+<ul>
+<li>Bucket Policies operate control down to the bucket level</li>
+<li>Access control Lists (ACL) for individual S3 objects</li>
+</ul>
+</li>
+<li>Can setup access logs for S3 buckets</li>
+<li>Object options:
+<ul>
+<li>Key (name of object)</li>
+<li>Value (sequence of bytes for object)</li>
+<li>Version ID (for versioning)</li>
+<li>Metadata (Data about object)</li>
+</ul>
+</li>
+</ul>
+<h3 id="types-of-s3-buckets">Types of S3 Buckets</h3>
+<ul>
+<li>S3 Standard.
+<ul>
+<li>99.99% availability</li>
+<li>99.(11x 9's) durability</li>
+<li>Stored redundantly across multiple devices</li>
+<li>Designed to sustain loss of 2 facilities concurrently</li>
+</ul>
+</li>
+<li>S3 Infrequent Access (S3-IA)
+<ul>
+<li>Data accessed less frequency</li>
+<li>Rapid access when needed</li>
+<li>Lower fee than S3 but charged retrieval fee</li>
+</ul>
+</li>
+<li>S3 One Zone - IE
+<ul>
+<li>Lower cost option for IA</li>
+<li>Don't require multiple availability zone</li>
+</ul>
+</li>
+<li>S3 - Intelligent Tiering
+<ul>
+<li>Moves object around different tiers of S3 using machine learning</li>
+</ul>
+</li>
+<li>S3 - Glacier
+<ul>
+<li>Low cost storage class for data archiving</li>
+<li>Retrieval can be from minutes to hours</li>
+</ul>
+</li>
+<li>S3 - Glacier Deep Archive
+<ul>
+<li>Lowest-cost storage system</li>
+<li>Retrieval time of 12 hours is acceptable</li>
+</ul>
+</li>
+</ul>
+<h3 id="s3--encryption">S3- Encryption</h3>
+<ul>
+<li>Encryption in transit
+<ul>
+<li>SSL/TLS</li>
+</ul>
+</li>
+<li>Encryption at rest (server side)
+<ul>
+<li>S3 Managed Keys - SSE(server side encryption)-S3</li>
+<li>Managed keys - SSE-KMS</li>
+<li>Server sided Encryption with Customer Provided Keys - SSE-C</li>
+<li>Client side Encryption</li>
+</ul>
+</li>
+</ul>
+<h3 id="versioning">Versioning</h3>
+<ul>
+<li>Stores all versions of an object</li>
+<li>Good for backup</li>
+<li>Cannot be disabled once enabled</li>
+<li>Comes with <strong>MFA DELETE</strong> capability (multi-factor to delete a file for additional layer of security)</li>
+<li>Lifecycle rules:
+<ul>
+<li>Automate transitions between tiers of storage depending on time</li>
+<li>Can expire an object after some duration from creation</li>
+</ul>
+</li>
+</ul>
+<h3 id="cross-region-replication">Cross-region replication</h3>
+<ul>
+<li>Does not replicate <strong>DELETE</strong> markers or deleting individual versions</li>
+<li>Versioning must be enabled on both source or destination</li>
+<li>Files in existing bucket are not replicated automatically</li>
+</ul>
+<h2 id="cloudfront">CloudFront</h2>
+<ul>
+<li>Is a content delivery network (CDN)</li>
+<li><strong>Edge Location</strong>: Location where content will be cached when pulled. Seperate to AWS Region / Access Zone
+<ul>
+<li>Can be written to as well</li>
+<li>Objects are cached until TTL (Time to live)</li>
+<li>Can clear (invalidate) cached objects and paths, but will be charged</li>
+</ul>
+</li>
+<li><strong>Origin</strong>: Origin of files that the CDN will distribute (EC2 / S3 / ELB / Route 53)</li>
+<li>Two types of distributions: RTMP (real time messaging protocol) and Web protocol</li>
+<li>Can restrict access using signed URLs / Cookies</li>
+</ul>
+<h2 id="storage-gateway">Storage Gateway</h2>
+<ul>
+<li>for connecting on premise to cloud</li>
+<li>doesn't support access from multiple locations simultaneously</li>
+<li><strong>File Gateway</strong>: For flat files, stored directly on S3</li>
+<li><strong>Volume Gateway</strong>
+<ul>
+<li><strong>Stored Volumes</strong>: Entire Dataset is stored on site and is asyncrhonously backed up to S3</li>
+<li><strong>Cached Volumes</strong>: Only most frequency accessed data on site and entire dataset stored on S3</li>
+</ul>
+</li>
+</ul>
+<h2 id="elastic-compute-cloud-ec2">Elastic Compute Cloud (EC2)</h2>
+<ul>
+<li>Provides resizable compute capacity in the cloud</li>
+<li>Instance Types:
+<ol>
+<li><strong>F</strong> - FPGA (field-programmable gate array)</li>
+<li><strong>I</strong> - IOPS (input/output operations per second)</li>
+<li><strong>G</strong> - Graphics</li>
+<li><strong>H</strong> - High Disk Throughput</li>
+<li><strong>T</strong> - Cheap, general purpose</li>
+<li><strong>D</strong> - Dense storage</li>
+<li><strong>R</strong> - RAM (memory optimized)</li>
+<li><strong>M</strong> - Main choice for general purpose apps</li>
+<li><strong>C</strong> - Compute optimized</li>
+<li><strong>P</strong> - Graphics (PCIE)</li>
+<li><strong>X</strong> - Extreme memory</li>
+<li><strong>Z</strong> - Extreme Memory and CPU</li>
+<li><strong>A</strong> - ARM-based workloads</li>
+<li><strong>U</strong> - Bare Metal</li>
+</ol>
+</li>
+<li>Termination protection is turned off by default</li>
+<li>amazon machine image (AMI)</li>
+</ul>
+<h3 id="security-groups">Security Groups</h3>
+<ul>
+<li>security rule takes effect immediately</li>
+<li>Inbound / Outbound rule are <strong>stateful</strong> (means having an inbound will have a corresponding outbound rule automatically)</li>
+<li>All <strong>inbound</strong> traffic is blocked by default</li>
+<li>All <strong>outbound</strong> traffic is allowed by default</li>
+<li>Can have multiple security groups for an EC2 instance</li>
+<li>Can have multiple EC2 instances with 1 security group</li>
+<li>No <em>deny</em> rules, only <em>allow</em> rules</li>
+</ul>
+<h3 id="ebs">EBS</h3>
+<ul>
+<li>Will be in the same availablity zone as the EC2 instance</li>
+<li>root EBS volume is deleted when EC2 instance is terminated</li>
+<li>Can change EBS volume type on the fly without shutting it off</li>
+<li>additional EBS volumes that are not the root EBS volume <strong>will not</strong> be automatically deleted when EC2 instance is terminated</li>
+<li><strong>Snapshots</strong> exists on S3
+<ul>
+<li>Can create AMI's from snapshots</li>
+</ul>
+</li>
+<li><strong>EBS Optimization</strong>:
+<ul>
+<li>Optimizes network traffic to the EBS volume</li>
+</ul>
+</li>
+<li><strong>HDD</strong>
+<ul>
+<li>large, sequential operations</li>
+<li>can't be used as boot volume</li>
+<li>streaming data workloads</li>
+<li>low cost</li>
+<li>mostly for throughput</li>
+</ul>
+</li>
+<li><strong>SSD</strong>
+<ul>
+<li>small, random operations</li>
+<li>can be used as boot volume</li>
+<li>moderate / high cost</li>
+<li>for IOPS</li>
+</ul>
+</li>
+</ul>
+<h4 id="types-of-ebs-volumes">Types of EBS Volumes</h4>
+<ul>
+<li>General Purpose SSD (GP2)
+<ul>
+<li>For most workloads</li>
+</ul>
+</li>
+<li>Povisioned IOPS SSD (IO1)
+<ul>
+<li>For databases</li>
+</ul>
+</li>
+<li>Throuput Optimized HDD (ST1)
+<ul>
+<li>For big data &amp; data warehouses</li>
+</ul>
+</li>
+<li>Cold HDD (SC1)
+<ul>
+<li>For File servers</li>
+</ul>
+</li>
+<li>EBS Magnetic (Standard)
+<ul>
+<li>For infrequenly accessed data</li>
+</ul>
+</li>
+</ul>
+<h3 id="instance-store">Instance Store</h3>
+<ul>
+<li>High speed storage physically attached to the EC2 instance</li>
+<li>Ephemeral storage</li>
+<li>Instance store volumes cannot be stopped. If uderlying host fails, you will lose data</li>
+<li>Can be rebooted</li>
+<li>Can't keep after EC2 instance termination like EBS</li>
+</ul>
+<h3 id="encryption">Encryption</h3>
+<ul>
+<li>Can make an encrypted root device volume by:
+<ol>
+<li>Create a snapshot of EC2 instance</li>
+<li>Copy the created snapshot select the encrypt option</li>
+<li>Create an AMI from the snapshot</li>
+<li>launch an EC2 instance as an encrypted root device volume</li>
+</ol>
+</li>
+<li>Encryption can also be configured at EC2 instance launch</li>
+<li>Snapshot of encrypted volumes are encrypted automatically</li>
+<li>Volumes restored from encrypted snapshots are encrypted automatically</li>
+</ul>
+<h3 id="ec2-qa">EC2 Q&amp;A</h3>
+<ul>
+<li><strong>Q</strong>: How to move EC2&amp;EBS to another region?</li>
+<li><strong>A</strong>: Create a snapshot, then create an amazon machine image (AMI) from the snapshot, copy the AMI from one region to the other, then create a new EC2 instance with the copied AMI.</li>
+</ul>
+<h2 id="placement-groups-ec2">Placement groups (EC2)</h2>
+<ul>
+<li><strong>Cluster</strong>: places EC2 instances inside an AZ for low latency communication usually used for high performance compute</li>
+<li><strong>Partition</strong>: To seperate underlying hardware for groups of instances in a partition typically used by large distributed and replicated workloads</li>
+<li><strong>Spread placement group</strong>: places EC2 instances across <strong>distinct</strong> underlying hardware to reduce correlated failures</li>
+</ul>
+<h2 id="cloudwatch">CloudWatch</h2>
+<ul>
+<li>Monitors performance and metrics</li>
+<li>Can set alarms to perform actions such as invoking actions to start/stop EC2 instances</li>
+<li><strong>Standard monitoring</strong> monitors events every 5 minutes by default</li>
+<li><strong>Detailed monitoring</strong> will have 1 minute intervals</li>
+</ul>
+<h2 id="cloudtrail">CloudTrail</h2>
+<ul>
+<li>Audits account actions</li>
+<li>Increased visibility on AWS account logs (IE. who made the S3 bucket)</li>
+<li>For monitoring API calls as well</li>
+</ul>
+<h2 id="redshift">Redshift</h2>
+<ul>
+<li>SQL based data warehouse for analytics</li>
+<li>Ideal for processing large amounts of data</li>
+<li>No multi-AZ deployments</li>
+<li>Backups to s3</li>
+<li><strong>Redshift spectrum:</strong> Query data from files directly on s3</li>
+<li>More control over performance than athena</li>
+</ul>
+<h2 id="athena">Athena</h2>
+<ul>
+<li>serverless query service to analyze data in S3 via SQL queries</li>
+<li>integrates with AWS glue</li>
+</ul>
+<h2 id="fsx">FSx</h2>
+<ul>
+<li>Fast performance of commercially available file systems</li>
+<li><strong>FSx windows file server</strong>:
+<ul>
+<li>built on AD and SMB</li>
+<li>for business applications</li>
+</ul>
+</li>
+<li><strong>FSx luster</strong>:
+<ul>
+<li>High performance storage</li>
+</ul>
+</li>
+</ul>
+<h2 id="ecs">ECS</h2>
+<ul>
+<li>Fully managed container orchestration service</li>
+<li><strong>Task definition</strong>:
+<ul>
+<li>Required to run docker containers in ECS
+<ul>
+<li>Needs to specify docker image to use with each instance in your task</li>
+<li>How much CPU and memory for each task</li>
+<li>The launch type</li>
+<li>IAM role tasks in this task definition should use</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Database credentials can be stored in:
+<ul>
+<li><strong>AWS Secrets manager</strong></li>
+<li><strong>AWS Systems Manager Parameter</strong></li>
+</ul>
+</li>
+</ul>
+<h2 id="encryption-client-side-vs-server-side">Encryption client side vs server side</h2>
+<ul>
+<li>Client-side encryption: data is encrypted before being sent to AWS
+<ul>
+<li>Use either <strong>AWS KMS-managed customer master key</strong> or **client-side master</li>
+</ul>
+</li>
+</ul>
+<h2 id="dynamodb">DynamoDB</h2>
+<ul>
+<li>Scalable NoSQL database</li>
+<li><strong>Amazon DynamoDB Accelerator (DAX)</strong>:
+<ul>
+<li>fully managed in memory cache for dynamoDB</li>
+<li>highly scalable</li>
+</ul>
+</li>
+<li>No read replicas (doesn't need them)</li>
+<li><strong>DynamoDB stream</strong> is an ordered flow of information that changes to items in a DDB table</li>
+</ul>
+<h2 id="aws-web-application-firewall-waf">AWS Web Application Firewall (WAF)</h2>
+<ul>
+<li>Blocks common attack patterns ie. SQL injections, XSS, and other custom rules</li>
+<li>Can be deployed in cloudfront, ALB, or EC2/APIG.</li>
+</ul>
+<h2 id="aws-privatelink">AWS privatelink</h2>
+<ul>
+<li>Private connection between VPC's, AWS services, and on-premise applications</li>
+<li>Connect services across different accounts and VPC's</li>
+<li>Can use <strong>VPC endpoints</strong> with privatelink to privately connect to VPC without the need for internet gateways, NAT devices, VPN connections, or AWS direct connect connections</li>
+</ul>
+<h2 id="nat-gateway">NAT gateway</h2>
+<ul>
+<li>network addrses translation table</li>
+<li>enable instances inside a private subnet to connect to the internet or other AWS services</li>
+<li>prevents internet from initiating a connection with those instances</li>
+<li>highly available</li>
+<li>managed for you by aws</li>
+<li>charged hourly</li>
+</ul>
+<h2 id="internet-gateway">Internet gateway</h2>
+<ul>
+<li>Allows connection from the internet to the VPC</li>
+<li>horizontally scaled, redundant, highly available</li>
+</ul>
+<h2 id="aws-direct-connect">AWS direct connect</h2>
+<ul>
+<li>establish dedicated network connection from premise to AWS</li>
+<li>for high throughput workloads</li>
+<li>more consistent than internet-based connections</li>
+<li>not for VPC's</li>
+</ul>
+<h2 id="egress-only-internet-gateway">Egress-only internet gateway</h2>
+<ul>
+<li>allows only IPV6 internet connection from VPC to internet</li>
+<li>denies internet traffic initiating ipv6 connection with VPC</li>
+</ul>
+<h2 id="aws-datasync">AWS DataSync</h2>
+<ul>
+<li>Simple way to move large amounts of data from on-premises storage and S3, EFS, or FSx</li>
+<li>Used for migrating data (<strong>not databases</strong>)</li>
+</ul>
+<h2 id="aws-global-accelerator">AWS global accelerator</h2>
+<ul>
+<li>provides static ip address that act as a fixed entry point to your application endpoint</li>
+<li>single/multiple AWS regions such as ALB, NLB, or EC2 instances</li>
+</ul>
+<h2 id="lambda">Lambda</h2>
+<ul>
+<li>Environment variables are encrypted at rest (after deployment)</li>
+<li><strong>Canary</strong> deployment ensures deployments are shifted in increments</li>
+</ul>
+<h2 id="ec2">EC2</h2>
+<ul>
+<li>When doing maintenance, put EC2 on <strong>standby</strong> state (will still be charged)</li>
+<li><strong>InsufficientInstanceCapacity</strong> when AWS does not have enough on-demand instances available</li>
+<li><strong>InstanceLimitExceeded</strong> when limit on number of instances launched in a region is met</li>
+<li>Can use <strong>launch templates</strong> to store settings such as AMI ID, instance type, key pairs, and security groups</li>
+<li><strong>auto scaling</strong>
+<ul>
+<li>use <strong>launch configurations</strong> to specify what AMI to launch
+<ul>
+<li>must create a new launch config when making changes to AMI</li>
+</ul>
+</li>
+<li>Performs rebalancing when number of instances accross AZ's are not balanced</li>
+<li>Can send an SNS email</li>
+</ul>
+</li>
+<li><strong>Dedicated instance</strong>: instance that runs in a VPC for a single customer</li>
+<li><strong>AWS Opswork</strong>
+<ul>
+<li>provides automatic configuration of servers through chef and puppet</li>
+</ul>
+</li>
+<li><strong>AWS runcommand</strong>
+<ul>
+<li>allows ad-hoc commands to be run across EC2 instances</li>
+</ul>
+</li>
+<li><strong>AWS userdata</strong>
+<ul>
+<li>allows setup scripts to be ran when EC2 instance first launches</li>
+</ul>
+</li>
+<li><strong>AWS codedeploy</strong>
+<ul>
+<li>allows automatic software deployments to EC2, lambda, or servers</li>
+</ul>
+</li>
+<li><strong>instance store</strong> volumes can only be attached when instance is first launched</li>
+</ul>
+<h2 id="endpoints">Endpoints</h2>
+<ul>
+<li><strong>Gateway endpoint&quot;</strong>
+<ul>
+<li>gateway that is target for a specific route</li>
+<li>Amazon S3, DynamoDB</li>
+<li>VPC endpoint policies</li>
+</ul>
+</li>
+<li><strong>Interface endpoint</strong>
+<ul>
+<li>elastic network interface with private endpoints</li>
+<li>APIG, CloudFormation, cloudwatch</li>
+<li>Security groups</li>
+<li>uses privatelink</li>
+</ul>
+</li>
+</ul>
+<h2 id="elasticache">Elasticache</h2>
+<p>In memory database</p>
+<ul>
+<li><strong>Memcached:</strong> easy to use</li>
+<li><strong>Redis:</strong> Snapshots, replication, transactions, lua scripts, geospatial support</li>
+</ul>
+<h2 id="vpc">VPC</h2>
+<ul>
+<li><strong>Security groups</strong> act as virtual firewalls for an instance
+<ul>
+<li>Only has allow rules</li>
+<li>stateful</li>
+<li>evaluates all rules</li>
+<li>default of deny all inbound, allow all outbound</li>
+</ul>
+</li>
+<li><strong>Network ACLs</strong> act as virtual firewalls within a subnet
+<ul>
+<li>Can have allow/deny rules</li>
+<li>stateless</li>
+<li>process rules in order</li>
+<li>default of allow all inbound, allow all outbound</li>
+<li>custom of deny all inbound, deny all outbound</li>
+</ul>
+</li>
+<li><strong>VPC peering</strong> allows networking connection between two VPCs</li>
+<li>subnets are associated with route tables when created</li>
+<li>must provice <strong>security group ID</strong> and <strong>subnet ID</strong> when enabling access to resources inside private VPC</li>
+<li><strong>Default VPC</strong> will be assinged with both a public and private DNS when launched</li>
+<li><strong>Non-default VPC</strong> will be assigned only a private DNS when launched</li>
+<li><strong>transit gateways</strong> allows a centralized place to conenct to all VPCs</li>
+<li><strong>flow logs</strong> is used to capture traffic information to and from network interfaces in VPC</li>
+</ul>
+<h2 id="elastic-load-balancer-elb">Elastic load balancer (ELB)</h2>
+<ul>
+<li><strong>Application load balancer (ALB):</strong>
+<ul>
+<li>layer 7 load balancing</li>
+<li>Can enable <strong>access logs</strong> to get information about requester and store data in s3</li>
+<li>for HTTP/HTTPS traffic</li>
+</ul>
+</li>
+<li><strong>Network load balancer (NLB):</strong>
+<ul>
+<li>layer 4 load balancing</li>
+<li>for UDP / TCP traffic</li>
+</ul>
+</li>
+<li>closes connections cleanly via <strong>connection draining</strong></li>
+<li>Target groups can be used to specify which microservice a load balancer routes to</li>
+</ul>
+<h2 id="load-balancing">Load balancing</h2>
+<ul>
+<li><strong>Weighted routing route53</strong>: when you want to unevenly split traffic based on route53</li>
+<li><strong>Cross zone load balancing</strong>: when you want to evenly split traffic between all EC2 instances (if there are more instances in one AZ than the other, traffic will still be evenly split among all instances)</li>
+</ul>
+<h2 id="ec2-networking">EC2 networking</h2>
+<ul>
+<li><strong>ENI</strong>: Basic networking</li>
+<li><strong>ENA</strong>: elastic network adapter: betwen 10gbps or 100gbps</li>
+<li><strong>EFA</strong>: lastic fabric adapter: for HPC or OS by-pass</li>
+</ul>
+<h2 id="aws-batch">AWS batch</h2>
+<ul>
+<li>used for batch processing operations without need to manage servers</li>
+</ul>
+<h2 id="aws-elastic-beanstalk">AWS Elastic beanstalk</h2>
+<ul>
+<li>Deploys and scales web applications and services developed in Java, .NET, python, ruby, and others.</li>
+<li>Deploys, load balances, auto-scales, and health monitors for you</li>
+<li>is a platform-as-a-service (PaaS) - means that scaling is handled for us</li>
+<li>different from cloudFormation in that we don't need to manage scaling ourselves</li>
+</ul>
+<h2 id="aws-step-functions">AWS step functions</h2>
+<ul>
+<li>Cordinates workflows to sequence lambda functions and multiple AWS services into business-critical applications</li>
+</ul>
+<h2 id="aws-config">AWS config</h2>
+<ul>
+<li>assess and evaluate configurations of AWS resources</li>
+</ul>
+<h2 id="rds">RDS</h2>
+<ul>
+<li>Snapshot encryption is only available if the database itself is encrypted or the encrypt database option is selected when first created</li>
+<li><strong>Atomic, consistent, isolated, durable (ACID)</strong> compliant</li>
+<li>IAM DB authentication: allows only authenticated calls to the database (works with <strong>MySQL</strong> and <strong>Postgresql</strong>)</li>
+</ul>
+<h2 id="aws-emr">AWS EMR</h2>
+<ul>
+<li>process vast amounts of data</li>
+<li>uses hadoop</li>
+<li>on demand</li>
+<li>elasticity is important</li>
+<li>can access ec2 instances that were created by EMR</li>
+<li><strong>Hive</strong> uses SQL queries to interact with data</li>
+</ul>
+<h2 id="aws-kinesis">AWS kinesis</h2>
+<ul>
+<li><strong>Kinesis data streams</strong>: collect log events in real time</li>
+<li><strong>Kinesis data firehose</strong>: reliably load data into datalakes
+<ul>
+<li>Can load into the following: S3, redshift, elasticsearch, and splunk</li>
+</ul>
+</li>
+</ul>
+<h2 id="sqs">SQS</h2>
+<ul>
+<li>Queue for processing information or decoupling stacks</li>
+<li>defaults with <strong>short polling</strong> so only samples a subset of servers to find messages</li>
+<li><strong>long polling</strong> will query all servers for messages until timeout expires</li>
+</ul>
+<h2 id="misc">Misc</h2>
+<ul>
+<li><strong>AWS Macie:</strong> ML powered security service that helps prevent data loss in S3</li>
+<li><strong>AWS directory service AD connector:</strong> easy integration with microsoft AD</li>
+<li><strong>AWS shield:</strong> DDOS protection at no additional cost</li>
+<li><strong>AWS x-ray:</strong> helps developers analyze and debug distributed applications built using the microservice architecture</li>
+<li><strong>AWS SWF:</strong> able to coordinate work across distributed application components</li>
+<li><strong>Decoupled architecture</strong> requres <strong>SQS</strong> and <strong>SWF</strong></li>
+<li><strong>AWS Resource Access Manager (RAM</strong>) is a service that enables you to easily and securely share AWS resources with any AWS account or within your AWS Organization</li>
+<li><strong>AWS Parameter store:</strong> allows you to store data such as passwords, database strings, AMI ids, and license codes as parameter values.</li>
+<li><strong>AWS config:</strong> enables you to assess, audit, and evaluate configurations of AWS resources</li>
+</ul>
+
+</body>
+</html>

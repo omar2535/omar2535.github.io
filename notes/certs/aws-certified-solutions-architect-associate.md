@@ -341,6 +341,13 @@
   - Security groups
   - uses privatelink
 
+## Elasticache
+
+In memory database
+
+- **Memcached:** easy to use
+- **Redis:** Snapshots, replication, transactions, lua scripts, geospatial support
+
 ## VPC
 
 - **Security groups** act as virtual firewalls for an instance
@@ -440,3 +447,6 @@
 - **AWS SWF:** able to coordinate work across distributed application components
 - **Decoupled architecture** requres **SQS** and **SWF**
 - **AWS Resource Access Manager (RAM**) is a service that enables you to easily and securely share AWS resources with any AWS account or within your AWS Organization
+- **AWS Parameter store:** allows you to store data such as passwords, database strings, AMI ids, and license codes as parameter values.
+- **AWS config:** enables you to assess, audit, and evaluate configurations of AWS resources
+
