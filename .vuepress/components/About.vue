@@ -11,11 +11,9 @@
     </div>
     <div id="body">
       <p>Hi there! I'm Omar. I am a student at the University of British Columbia
-         pursuing a bachelor's degree in Physics and Computer Science. On my free time, I love to code 
+         pursuing a Bachelor's degree in Physics and Computer Science. In my free time, I love to code 
          and learn about a variety of subjects such as investing
-         and interesting scientific topics. I also love to listen to podcasts and audio books. 
-         There's not much to write here since many of my other social media profiles are more complete
-         and thus, I will instead be mostly writing about my personal thoughts, interests, and opinions here.
+         and low level hardware. I also love to listen to podcasts and audio books.
       </p>
     </div>
   </div>
