@@ -6770,9 +6770,9 @@ npm-run-path@^2.0.0:
     path-key "^2.0.0"
 
 npm-user-validate@~1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/npm-user-validate/-/npm-user-validate-1.0.0.tgz#8ceca0f5cea04d4e93519ef72d0557a75122e951"
-  integrity sha1-jOyg9c6gTU6TUZ73LQVXp1Ei6VE=
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/npm-user-validate/-/npm-user-validate-1.0.1.tgz#31428fc5475fe8416023f178c0ab47935ad8c561"
+  integrity sha512-uQwcd/tY+h1jnEaze6cdX/LrhWhoBxfSknxentoqmIuStxUExxjWd3ULMLFPiFUrZKbOVMowH6Jq2FRWfmhcEw==
 
 npm@^6.9.0:
   version "6.14.7"
@@ -7818,9 +7818,9 @@ pretty-time@^1.1.0:
   integrity sha512-28iF6xPQrP8Oa6uxE6a1biz+lWeTOAPKggvjB8HAs6nVMKZwf5bG++632Dx614hIWgUPkgivRfG+a8uAXGTIbA==
 
 prismjs@^1.13.0:
-  version "1.20.0"
-  resolved "https://registry.yarnpkg.com/prismjs/-/prismjs-1.20.0.tgz#9b685fc480a3514ee7198eac6a3bf5024319ff03"
-  integrity sha512-AEDjSrVNkynnw6A+B1DsFkd6AVdTnp+/WoUixFRULlCLZVRZlVQMVWio/16jv7G1FscUxQxOQhWwApgbnxr6kQ==
+  version "1.21.0"
+  resolved "https://registry.yarnpkg.com/prismjs/-/prismjs-1.21.0.tgz#36c086ec36b45319ec4218ee164c110f9fc015a3"
+  integrity sha512-uGdSIu1nk3kej2iZsLyDoJ7e9bnPzIgY0naW/HdknGj61zScaprVEVGHrPoXqI+M9sP0NDnTK2jpkvmldpuqDw==
   optionalDependencies:
     clipboard "^2.0.0"
 
