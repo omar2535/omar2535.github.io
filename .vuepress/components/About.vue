@@ -10,8 +10,7 @@
       </div>
     </div>
     <div id="body">
-      <p>Hi there! I'm Omar. I am a student at the University of British Columbia
-         pursuing a Bachelor's degree in Physics and Computer Science. In my free time, I love to code 
+      <p>Hi there, I'm Omar! I'm a new grad from the University of British Columbia. In my free time, I love to code 
          and learn about a variety of subjects such as investing
          and low level hardware. I also love to listen to podcasts and audio books.
       </p>
