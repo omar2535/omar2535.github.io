@@ -1,4 +1,4 @@
-name: docs
+name: Github-pages deploy
 
 on:
   # trigger deployment on every push to master branch
