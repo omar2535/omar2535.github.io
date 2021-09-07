@@ -1,4 +1,4 @@
-name: Github-pages deploy
+name: deploy
 
 on:
   # trigger deployment on every push to master branch
@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  docs:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
