@@ -12,7 +12,9 @@
     "vuepress-plugin-mathjax": "^1.2.8",
     "vuepress-plugin-reading-progress": "^1.0.10"
   },
-  "scripts": {},
+  "scripts": {
+    "build": "vuepress build"
+  },
   "license": "UNLICENSED",
   "devDependencies": {
     "@vuepress/plugin-back-to-top": "^1.7.1",
