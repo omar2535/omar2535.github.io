@@ -1,7 +1,7 @@
 ---
 title: Passed OSCP!
 description: I finally passed OSCP on my second attempt
-image: /images/blog/oscp_image_2.PNG
+image: /images/blog/oscp_image_2.png
 date: 2020-08-30
 author: Omar Tsai
 ---
