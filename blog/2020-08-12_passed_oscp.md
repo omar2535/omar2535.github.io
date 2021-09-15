@@ -8,7 +8,7 @@ author: Omar Tsai
 
 ## OSCP Attempt \# 2
 
-![OSCP image](/images/blog/oscp_image_2.PNG)
+![OSCP image](/images/blog/oscp_image_2.png)
 
 For my second attempt, I scheduled it at 9:00pm at night. The reason I chose to start at night was because I knew I needed breaks in the middle and a good night's rest will help me reset my mental model.
 
