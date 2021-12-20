@@ -2,6 +2,7 @@
   "dependencies": {
     "@omar2535/vuepress-sidebar-children-autogenerator": "3.1.0",
     "axios": "^0.21.1",
+    "chokidar": "^2.1.8",
     "global": "^4.4.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
