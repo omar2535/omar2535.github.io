@@ -25,7 +25,7 @@ let pluginConfig = [
      * @host
      * Mandatory, You have to provide the host URL
      */
-    host: "https://mmorzco.com",
+    host: "https://thaomar.com",
     /**
      * @disallowAll
      * Optional: if it's true, all others options are ignored and exclude all robots from the entire server

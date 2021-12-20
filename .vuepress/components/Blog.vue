@@ -94,7 +94,7 @@ a {
 
 a:hover{
   text-decoration: none;
-  color: rgb(24, 255, 255);
+  color: rgb(22, 181, 255);
 }
 
 .card{
