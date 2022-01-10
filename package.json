@@ -14,13 +14,15 @@
     "vuepress-plugin-reading-progress": "^1.0.10"
   },
   "scripts": {
-    "build": "vuepress build"
+    "build": "vuepress build",
+    "dev": "nodemon --ext md,vue --watch .vuepress --watch . --exec vuepress dev . --host localhost"
   },
   "license": "UNLICENSED",
   "devDependencies": {
     "@vuepress/plugin-back-to-top": "^1.7.1",
     "@vuepress/plugin-nprogress": "^1.7.1",
     "ini": "^2.0.0",
+    "nodemon": "^2.0.15",
     "vuepress-plugin-disqus": "^0.2.0",
     "vuepress-plugin-element-ui": "^1.1.0",
     "vuepress-plugin-reading-time": "^0.1.1",
