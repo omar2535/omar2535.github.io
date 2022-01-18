@@ -1,13 +1,13 @@
 <template>
   <div id="about-me">
     <div id="profile-heading">
-      <img id="profile_image" src="../content/website_pic.jpg">
       <div id="profile-heading-text">
         <h1 id="name"> Omar Tsai </h1>
         <a :href="'//' + linkedinUrl" target="_blank">Linkedin</a>
         <a :href="'//' + githubUrl" target="_blank"> Github</a>
         <a :href="'//' + twitterUrl" target="_blank">Twitter</a>
       </div>
+      <img id="profile_image" src="../content/website_pic.jpg">
       <!-- <div id="certs-div">
         <a href="https://www.credly.com/badges/d36c34f0-3133-4dbf-8d1b-9cd7d317ef09/public_url" target="_blank">
           <img class="cert-icon" src="../content/oswe.png"/>
@@ -46,7 +46,7 @@ export default {
 
 <style scoped>
   #profile_image{
-    width: 500px;
+    width: 200px;
     height: auto;
     border-radius: 10%;
     display:inline-block;

