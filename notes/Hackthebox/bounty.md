@@ -20,10 +20,9 @@ interestingly enough, after a few minutes the file is garbled up and unviewable.
 
 Additionally, we can also upload `.config` files, so we can upload something like `web.config` and make it run `asp` code for us.
 
-
 So we use the following web.config code:
 
-```asp
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
    <system.webServer>
