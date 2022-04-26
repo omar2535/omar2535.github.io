@@ -8,7 +8,18 @@
         <a :href="'//' + twitterUrl" target="_blank">Twitter</a>
       </div>
       <img id="profile_image" src="../content/website_pic.jpg">
-      <!-- <div id="certs-div">
+    </div>
+    <div id="body">
+      <p>Hi there, I'm Omar! I'm currently doing my masters at Simon Fraser University studying Cybersecurity. 
+        In my free time, I love to code and learn about a variety of subjects such as investing
+         and low level hardware. I also love to listen to podcasts and audio books. 
+      </p>
+    </div>
+    
+    <!-- Divide credentials -->
+    <div class="cert-div">
+      <div id="professional-certs-div">
+      <h2> Professional Certifications </h2>
         <a href="https://www.credly.com/badges/d36c34f0-3133-4dbf-8d1b-9cd7d317ef09/public_url" target="_blank">
           <img class="cert-icon" src="../content/oswe.png"/>
         </a>
@@ -18,14 +29,23 @@
         <a href="https://www.credly.com/badges/1004eff7-e62a-4126-8494-570debaf29dd/public_url" target="_blank">
           <img class="cert-icon" src="../content/awscsaa.png"/>
         </a>
-      </div> -->
+        <a href="https://www.credly.com/badges/5209dd47-e5a3-49e9-93d2-936aa87afdfc/public_url" target="_blank">
+          <img class="cert-icon" src="../content/btl1.png"/>
+        </a>
+      </div>
     </div>
-    <div id="body">
-      <p>Hi there, I'm Omar! I'm currently doing my masters at Simon Fraser University studying Cybersecurity. 
-        In my free time, I love to code and learn about a variety of subjects such as investing
-         and low level hardware. I also love to listen to podcasts and audio books. 
-      </p>
+
+    <div class="cert-div">
+      <div id="personal-certs-div">
+      <h2> Personal Certifications </h2>
+        <ul>
+          <li ><a href="https://www.boaterexam.com/canada/britishcolumbia/">Pleasure Craft Operator Card</a> </li>
+          <li> <a href="https://www.responsibleservicebc.gov.bc.ca/serving-it-right-course">Serving-It-Right</a> </li>
+        </ul>
+      </div>
     </div>
+    
+
   </div>
 </template>
 
@@ -78,11 +98,22 @@ export default {
     width: 70px;
     height: 70px;
   }
-  #certs-div{
+  #professional-certs-div{
     padding-top: 0%;
   }
+
+  .cert-div {
+    padding-top: 5em;
+  }
+  
   a {
     color: inherit;
     padding: 1em;
+  }
+
+  ul {
+    text-align: center;
+    list-style-position: inside;
+    list-style: none;
   }
 </style>
