@@ -13,9 +13,6 @@
     "vuepress-plugin-mathjax": "^1.2.8",
     "vuepress-plugin-reading-progress": "^1.0.10"
   },
-  "resolutions": {
-    "watchpack": "1.6.1"
-  },
   "scripts": {
     "build": "vuepress build",
     "dev": "nodemon --ext md,vue --watch .vuepress --watch ./ --exec vuepress dev ."
