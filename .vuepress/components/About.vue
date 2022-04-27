@@ -39,7 +39,7 @@
       <div id="personal-certs-div">
       <h2> Personal Certifications </h2>
         <ul>
-          <li ><a href="https://www.boaterexam.com/canada/britishcolumbia/">Pleasure Craft Operator Card</a> </li>
+          <li ><a href="https://www.boaterexam.com/canada/britishcolumbia/">Pleasure Craft Operator</a> </li>
           <li> <a href="https://www.responsibleservicebc.gov.bc.ca/serving-it-right-course">Serving-It-Right</a> </li>
         </ul>
       </div>
