@@ -7,13 +7,13 @@ module.exports = {
   themeConfig: {
     nav: [
       { text: 'Blog', link: '/blog/', target: '_self' },
-      { text: 'Notes', link: '/notes/', target: '_self'},
+      { text: 'Misc', link: '/misc/', target: '_self'},
       { text: 'About me', link: '/about/', target: '_self' }
     ],
     sidebar: 
     {
       // sidebar for notes section
-      '/notes/': generateChildren('/notes/'),
+      '/misc/': generateChildren('/misc/'),
       '/blog/': [
       ]
     },
