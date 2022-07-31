@@ -16,13 +16,13 @@ Firstly, it is with Ray Dalio's quote of
 
 > Meaningful work and meaningful relationships
 
-His guidance on living life through this principle makes me realize that life really boils down to this fundamental principle. Money can't buy relationships and money can't buy you work that is fun! Connections are much harder to build than just outright buying it with money.
+His guidance on living life through this principle made me realize that life really boils down to this fundamental principle. Money can't buy relationships, and money can't buy you work that is fun! Moreso, money can't buy you meaningful connections that will last you a lifetime.
 
-My mom always says:
+As my mom always says (which I echo a lot myself):
 
 > 能用錢解決的事是最簡單的
 
-This quote translates to *The problems solvable with money are the easiest*. This is a quote I personally come to understand as I grow older. THe majority of us can't solve problems on our own. Sure with money, you may *hire* someone to do something for you. But when you're in an emergency where everyone needs help, well then those relationships come into play a lot.
+In english, this quote translates to *The problems solvable with money are the easiest*. When I was young, I didn't really appreciate the strength of this quote. I thought as long as I had money, I could do anything! Yet, as I grow older, I've come to realize that money is just a tool. A tool to gives you options to do things but doesn't solve the problems for you. The biggest example I've come to see is meaningful relationships. 
 
 ## Rich Dad Poor Dad
 
