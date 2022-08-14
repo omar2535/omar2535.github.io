@@ -6,7 +6,7 @@
 - Top 3 teams in McAfee ATR Hax CTF
 - Top 6 teams in UCalgary Magpie CTF
 - Nominated for top 3 teams in SFU Cybersecurity MPCS Advisory Board Innovation Award competition
-- Top 3% in tryhackme
+- Top 1% in tryhackme
 
 ## 2021
 
