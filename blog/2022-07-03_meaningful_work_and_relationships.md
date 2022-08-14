@@ -43,7 +43,7 @@ I'm also in the process of listening to Steve Jobs and Obama's books. Autobiogra
 ![Principles cover](/images/blog/t_bill_2008-2022.png)
 *Interest rates on the T-bill from 2008 - 2022*
 
-Right now, the federal reserve is rapidly performing quantitative tightening in addition to raising interest rates. This has been a much needed pullback. And while they quote supply chain issues with high demand but low supply, the reality is that credit is too easy to come by. With interest rates for the last two years in the lowest, there's no more room for them to pump the markets. So their pullback currently is having a devastating effect on the markets.
+Right now, the federal reserve is rapidly performing quantitative tightening in addition to raising interest rates. This has been a much needed pullback. And while they quote supply chain issues with high demand but low supply, the reality is that credit is too easy to come by. With interest rates at its lowest point in the last 2 years, there's simply no more room for them to print more money to stimulate the markets. So their pullback currently is having a devastating effect on the markets - one of which is massive layoffs by big and small companies alike.
 
 As Warren Buffet has said:
 
@@ -51,6 +51,6 @@ As Warren Buffet has said:
 
 Basically, many companies who borrowed too much money on credit now can't pay their money back and will go bankrupt very quickly. This includes people such as home-owners with mortgages and even share-holders of these over-leveraged companies.
 
-Anyhow, I think I've rambled too much. This has been my half-year mark for 2022. And definitely one of the most interesting ones thus far.
+Anyhow, I think I've rambled too much. This has been my half-year mark for 2022. And definitely one of the most interesting years in my life.
 
 That's all!

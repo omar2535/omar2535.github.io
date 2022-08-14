@@ -12,7 +12,7 @@
     <div id="body">
       <p>Hi there, I'm Omar! I'm currently doing my masters at Simon Fraser University studying Cybersecurity. 
         In my free time, I love to code and learn about a variety of subjects such as investing
-         and low level hardware. I also love to listen to podcasts and audio books. 
+         and low level hardware. I also love to listen to podcasts and audio books.
       </p>
     </div>
     
