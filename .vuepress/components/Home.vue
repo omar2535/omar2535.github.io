@@ -4,7 +4,7 @@
     <h3 id="title">Welcome</h3>
     <div id="content">
       <p>To visit my blog, click <router-link to="/blog/">blog</router-link></p>
-      <p>To view my notes, click <router-link to="/notes/">notes</router-link></p>
+      <p>To view my notes and other misc items, click <router-link to="/misc/">notes</router-link></p>
       <p>To know more about me, <router-link to="/about/">about me</router-link></p>
     </div>
   </div>
