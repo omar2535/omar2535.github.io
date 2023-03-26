@@ -10,12 +10,12 @@
       <img id="profile_image" src="../content/website_pic.jpg">
     </div>
     <div id="body">
-      <p>Hi there, I'm Omar! I'm currently doing my masters at Simon Fraser University studying Cybersecurity. 
+      <p>Hi there, I'm Omar! I'm currently doing my masters at Simon Fraser University studying Cybersecurity.
         In my free time, I love to code and learn about a variety of subjects such as investing
          and low level hardware. I also love to listen to podcasts and audio books.
       </p>
     </div>
-    
+
     <!-- Divide credentials -->
     <div class="cert-div">
       <div id="professional-certs-div">
@@ -32,6 +32,9 @@
         <a href="https://www.credly.com/badges/5209dd47-e5a3-49e9-93d2-936aa87afdfc/public_url" target="_blank">
           <img class="cert-icon" src="../content/btl1.png"/>
         </a>
+        <a href="https://www.credly.com/badges/395eac7d-b46e-41c0-9204-13354ea5bd83/public_url" target="_blank">
+          <img class="cert-icon" src="../content/az-900.png"/>
+        </a>
       </div>
     </div>
 
@@ -44,7 +47,7 @@
         </ul>
       </div>
     </div>
-    
+
 
   </div>
 </template>
