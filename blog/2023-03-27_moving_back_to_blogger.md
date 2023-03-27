@@ -21,4 +21,4 @@ Omar
 <br/>
 <br/>
 
-Link to blog: [thaomar.blogspot.com](thaomar.blogspot.com) (I might try to add my custom domain to it later)
+Link to blog: [thaomar.blogspot.com](https://thaomar.blogspot.com) (I might try to add my custom domain to it later)
