@@ -10,10 +10,31 @@
       <img id="profile_image" src="../content/website_pic.jpg">
     </div>
     <div id="body">
-      <p>Hi there, I'm Omar! I'm currently doing my masters at Simon Fraser University studying Cybersecurity.
-        In my free time, I love to code and learn about a variety of subjects such as investing
-         and low level hardware. I also love to listen to podcasts and audio books.
+      <p>Hi there, I'm Omar! I'm a software developer and cybersecurity professional from Vancouver!
+         I did my B.Sc in Computer Science and Physics at the University of British Columbia and my M.Sc in computer science at Simon Fraser University.
+         I have an interest in social economics and general technology.On my free time, I spend most of my time making music or playing
+         the piano / guitar.
       </p>
+      <p>I hope that gives you a small sense of who I am!</p>
+    </div>
+
+    <!-- Divide credentials -->
+    <div class="cert-div">
+      <div id="social-links">
+      <h2>Content</h2>
+        <a href="https://youtube.com/@Omar_Tsai" target="_blank">
+          <img class="social-icon" src="../content/youtube_icon.png"/>
+        </a>
+        <a href="https://open.spotify.com/artist/4j9BOWLHh5eFnsRreTa81P?si=cuBriYL9RnK0JYNfVTwcaA" target="_blank">
+          <img class="social-icon" src="../content/spotify_icon.png"/>
+        </a>
+        <a href="https://music.apple.com/us/artist/omar-tsai/1691961274" target="_blank">
+          <img class="social-icon" src="../content/apple_music_icon.png"/>
+        </a>
+        <a href="https://music.youtube.com/channel/UCFpRyNlBRnYTICXuPseZo8w" target="_blank">
+          <img class="social-icon" src="../content/youtube_music_icon.png"/>
+        </a>
+      </div>
     </div>
 
     <!-- Divide credentials -->
@@ -97,12 +118,17 @@ export default {
     padding-left: 20%;
     padding-right: 20%;
   }
+  #professional-certs-div{
+    padding-top: 0%;
+  }
   .cert-icon{
     width: 70px;
     height: 70px;
   }
-  #professional-certs-div{
-    padding-top: 0%;
+
+  .social-icon {
+    width: 60;
+    height: 60px;
   }
 
   .cert-div {
