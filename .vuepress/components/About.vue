@@ -12,7 +12,7 @@
     <div id="body">
       <p>Hi there, I'm Omar! I'm a software developer and cybersecurity professional from Vancouver!
          I did my B.Sc in Computer Science and Physics at the University of British Columbia and my M.Sc in computer science at Simon Fraser University.
-         I have an interest in social economics and general technology.On my free time, I spend most of my time making music or playing
+         I have an interest in social economics and general technology. On my free time, I spend most of my time making music or playing
          the piano / guitar.
       </p>
       <p>I hope that gives you a small sense of who I am!</p>
@@ -46,6 +46,9 @@
         </a>
         <a href="https://www.credly.com/badges/60287ace-0874-4fc5-83ce-72a025cd9736/public_url" target="_blank">
           <img class="cert-icon" src="../content/oscp.png"/>
+        </a>
+        <a href="https://www.credential.net/7345e1b5-cc5b-4430-8751-50cf60ff5e1d#gs.7elb7j" target="_blank">
+          <img class="cert-icon" src="../content/cartp.png"/>
         </a>
         <a href="https://www.credly.com/badges/1004eff7-e62a-4126-8494-570debaf29dd/public_url" target="_blank">
           <img class="cert-icon" src="../content/awscsaa.png"/>
