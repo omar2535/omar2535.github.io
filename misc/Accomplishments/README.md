@@ -6,7 +6,6 @@
 - Completed my Masters
 - Got my first full-time job
 
-
 ## 2022
 
 - Top 3 in Vancouver Region for Cybersecurity challenge (CYBERSCI)
