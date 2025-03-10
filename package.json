@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "@omar2535/vuepress-sidebar-children-autogenerator": "3.1.0",
-    "axios": "^0.28.0",
+    "axios": "^1.8.2",
     "chokidar": "^3.5.3",
     "global": "^4.4.0",
     "react": "^18.0.0",
