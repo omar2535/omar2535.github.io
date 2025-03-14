@@ -137,7 +137,7 @@ export default {
   .cert-div {
     padding-top: 5em;
   }
-  
+
   a {
     color: inherit;
     padding: 1em;
